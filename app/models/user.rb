@@ -7,9 +7,9 @@ class User < ApplicationRecord
   enum gender: { male: 0, female: 1}
   enum nationality: { Egyptian: 0, Saudi_Arabia: 1, Other: 2}
 
-  has_many :book_trips
-  has_many :reviews
-  has_many :posts
+  has_many :book_trips, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+  has_many :posts, dependent: :destroy
 
   has_one_attached :avatar
   def avatar_url

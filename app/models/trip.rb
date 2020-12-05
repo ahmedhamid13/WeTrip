@@ -4,6 +4,7 @@ class Trip < ApplicationRecord
   has_many :days, dependent: :destroy
   has_many :offers, dependent: :destroy
   has_many :book_trips, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   has_many :schedules,  through: :days, source: :schedules
 
   enum currency: { RS: 0, EGP: 1}
