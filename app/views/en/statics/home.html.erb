@@ -131,22 +131,18 @@
         <div class="col-md-6 info">
         <h2>Blog</h2>
         <div class="row">
+            <% if @posts.present? %>
+            <% @posts.each do |post| %>
+                <div class="col-md-6 m-for-b">
+                    <%= (post.image.attached?) ? image_tag(post.image, class: 'img-fluid hvr-glow') : image_tag("dest/neom.webp", class: 'img-fluid hvr-glow') %>
+                </div>
 
-            <div class="col-md-6 m-for-b">
-            <%= image_tag("aldesh.webp", class: 'img-fluid' ) %>
-
-            </div>
-            <div class="col-md-6 m-for-b">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
-            </div>
-            <div class="col-md-6 m-for-b">
-            <%= image_tag("aldesh.webp", class: 'img-fluid' ) %>
-
-            </div>
-            <div class="col-md-6 m-for-b">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
-            </div>
-
+                <div class="col-md-6 m-for-b">
+                    <h5><%= post.en_title.first(20) %></h5>
+                    <p><%= post.en_body.first(100) %></p>
+                </div>
+            <% end %>
+            <% end %>
         </div>
         </div>
 

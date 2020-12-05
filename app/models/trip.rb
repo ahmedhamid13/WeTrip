@@ -7,7 +7,8 @@ class Trip < ApplicationRecord
   has_many :schedules,  through: :days, source: :schedules
 
   enum currency: { RS: 0, EGP: 1}
-
+  default_scope { order(created_at: :desc)}
+  
   has_many_attached :images
   def images_url
     self.images.attachment.nil? ? '' : self.images.attachment.service_url
