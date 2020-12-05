@@ -18,7 +18,7 @@ def create_destination_and_trips(destintion)
         ar_description: Faker::Lorem.paragraph
     )
     # dest.image.attach(io: File.open(Dir['app/assets/images/dest/*.webp'].sample), filename: "destination.jpg")
-    rand(3..8).times do |t|
+    rand(3..5).times do |t|
         trip = Trip.create!(
             en_name: Faker::FunnyName.name,
             en_description: Faker::Lorem.paragraph,
@@ -64,19 +64,33 @@ def create_offers(trip)
         Offer.create!(
             en_name: Faker::FunnyName.name,
             ar_name: Faker::FunnyName.name,
-            is_available: Faker::Boolean.boolean(true_ratio: 0.7),
+            is_available: Faker::Boolean.boolean(true_ratio: 0.65),
             trip_id: trip.id
         )
     end
 end
 
+def create_posts
+    Post.create!(
+        en_title: Faker::FunnyName.name,
+        en_body: Faker::Lorem.paragraph,
+        ar_title: Faker::FunnyName.name,
+        ar_body: Faker::Lorem.paragraph,
+        user_id: User.where(superadmin_role: true).first.id
+    )
+end
+
 create_user("ahmed", "abdelhamid", "ahmed@mail.com", "123456")
 create_user("zeyad", "saleh", "zeyad@mail.com", "123456")
 
-6.times do |t|
+2.times do |t|
     create_user(Faker::Name.name, Faker::Name.name, Faker::Internet.email, "123456")
 end
 
-8.times do |t|
+4.times do |t|
     create_destination_and_trips(Faker::Ancient.hero)
+end
+
+rand(3..6).times do |t|
+    create_posts
 end

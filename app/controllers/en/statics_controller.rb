@@ -5,7 +5,7 @@ class En::StaticsController < ApplicationController
     @destinations = Destination.all
     @trips = Trip.all
     @contact = Contact.new
-
+    @posts = Post.limit(2)
   end
 
   # GET /images

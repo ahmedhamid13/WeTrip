@@ -86,8 +86,10 @@ ActiveRecord::Schema.define(version: 2020_12_05_093548) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "title", null: false
-    t.text "body"
+    t.string "en_title", null: false
+    t.text "en_body"
+    t.string "ar_title", null: false
+    t.text "ar_body"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

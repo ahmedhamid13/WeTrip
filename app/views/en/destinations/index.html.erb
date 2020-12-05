@@ -6,7 +6,7 @@
           <% @destinations.each do |destination| %>
             <div class="col-md-6 tour">
               <div class="item">
-              <%= (destination.image.attached?) ? image_tag(destination.image, class: 'img-fluid hvr-glow') : image_tag("dest/neom.webp", class: 'img-fluid hvr-glow') %>
+              <%= (destination.image.attached?) ? image_tag(destination.image, class: 'img-fluid hvr-glow') : image_tag("neom.webp", class: 'img-fluid hvr-glow') %>
                 <div class="text-block">
                   <h3><%= destination.en_name %></h3>
                 </div>
