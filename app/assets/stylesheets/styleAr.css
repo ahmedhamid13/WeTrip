@@ -54,10 +54,10 @@ body {
   font-family: nexa-bold;
 }
 .header .carousel-control-next-icon {
-    background-image: asset-data-url("next.png");
+    background-image: url("next.png");
 }
 .header .carousel-control-prev-icon {
-    background-image: asset-data-url("back.png");
+    background-image: url("back.png");
 }
 /* End Header */
 /* Start Tours */
