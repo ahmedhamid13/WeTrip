@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>En name:</strong>
+  <%= @trip.en_name %>
+</p>
+
+<p>
+  <strong>En description:</strong>
+  <%= @trip.en_description %>
+</p>
+
+<p>
+  <strong>En leaving place:</strong>
+  <%= @trip.en_leaving_place %>
+</p>
+
+<p>
+  <strong>Ar name:</strong>
+  <%= @trip.ar_name %>
+</p>
+
+<p>
+  <strong>Ar description:</strong>
+  <%= @trip.ar_description %>
+</p>
+
+<p>
+  <strong>Ar leaving place:</strong>
+  <%= @trip.ar_leaving_place %>
+</p>
+
+<p>
+  <strong>Leaving time:</strong>
+  <%= @trip.leaving_time %>
+</p>
+
+<p>
+  <strong>Returning time:</strong>
+  <%= @trip.returning_time %>
+</p>
+
+<p>
+  <strong>Child price:</strong>
+  <%= @trip.child_price %>
+</p>
+
+<p>
+  <strong>Adult price:</strong>
+  <%= @trip.adult_price %>
+</p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @trip.currency %>
+</p>
+
+<p>
+  <strong>Available places:</strong>
+  <%= @trip.available_places %>
+</p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= @trip.destination_id %>
+</p>
+
+<%= link_to 'Edit', edit_trip_path(@trip) %> |
+<%= link_to 'Back', trips_path %>

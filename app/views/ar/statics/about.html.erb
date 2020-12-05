@@ -1,0 +1,71 @@
+<!-- Start Header -->
+<div class="header">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active slider"  style="background-image: url(<%= url_for(@destinations.first.image) %>)">
+                <div class="carousel-caption space">
+                        <h2><%= @destinations.first.name %></h2>
+                </div>
+                        <div class="carousel-caption">
+                            <%= link_to @destinations.first, class: 'btn ' do %>Book Now<% end %>
+                        </div>
+            </div>   
+
+            <% @destinations.drop(1).each do |destination| %>
+
+                <div class="carousel-item slider"  style="background-image: url(<%= url_for(destination.image) %>)">
+                    <div class="carousel-caption space">
+                            <h2><%= destination.name %></h2>
+                    </div>
+                            <div class="carousel-caption">
+                                <%= link_to destination, class: 'btn ' do %>Book Now<% end %>
+                            </div>
+                    </div>   
+            <% end %>
+         </div>
+         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+    </div>
+</div>
+<!-- End Header -->
+<!-- Start About Us -->
+    <div class="about">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-12 info">
+            <h1>About Us Week end Trips</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          </div>
+          <div class="col-lg-3 col-md-6 info text-center features">
+            <span class="d-block"><i class="fas fa-globe"></i></span>
+            <h4>Diverse Destainations</h4>
+            <p>Explore the perfect combination of sea and mountains, where you can swim in the sea and hike the mountains in the same day.</p>
+          </div>
+          <div class="col-lg-3 col-md-6 info text-center features">
+            <span class="d-block"><i class="fas fa-money-bill-wave"></i></span>
+            <h4>Value For Money</h4>
+            <p>Because quality does not mean expensive! we offer best prices for your best experience.</p>
+          </div>
+          <div class="col-lg-3 col-md-6 info text-center features">
+            <span class="d-block"><i class="fas fa-calendar-week"></i></span>
+            <h4>Fast Booking</h4>
+            <p>Don't worry about how to book your trip. You don't need to make complicated steps to book your trip with us.</p>
+          </div>
+          <div class="col-lg-3 col-md-6 info text-center features">
+            <span class="d-block"><i class="fas fa-comments"></i></span>
+            <h4>Support Team</h4>
+            <p>Our team is handling all the details before, During and after your tour.</p>
+          </div>
+
+        </div> <!--/Row -->
+      </div> <!-- /Container -->
+    </div> <!-- /About -->
+    <!-- End About Us -->

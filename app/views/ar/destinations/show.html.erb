@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>En name:</strong>
+  <%= @destination.en_name %>
+</p>
+
+<p>
+  <strong>En description:</strong>
+  <%= @destination.en_description %>
+</p>
+
+<p>
+  <strong>Ar name:</strong>
+  <%= @destination.ar_name %>
+</p>
+
+<p>
+  <strong>Ar description:</strong>
+  <%= @destination.ar_description %>
+</p>
+
+<%= link_to 'Edit', edit_destination_path(@destination) %> |
+<%= link_to 'Back', destinations_path %>

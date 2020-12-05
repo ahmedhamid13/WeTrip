@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Trips</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>En name</th>
+      <th>En description</th>
+      <th>En leaving place</th>
+      <th>Ar name</th>
+      <th>Ar description</th>
+      <th>Ar leaving place</th>
+      <th>Leaving time</th>
+      <th>Returning time</th>
+      <th>Child price</th>
+      <th>Adult price</th>
+      <th>Currency</th>
+      <th>Available places</th>
+      <th>Destination</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trips.each do |trip| %>
+      <tr>
+        <td><%= trip.en_name %></td>
+        <td><%= trip.en_description %></td>
+        <td><%= trip.en_leaving_place %></td>
+        <td><%= trip.ar_name %></td>
+        <td><%= trip.ar_description %></td>
+        <td><%= trip.ar_leaving_place %></td>
+        <td><%= trip.leaving_time %></td>
+        <td><%= trip.returning_time %></td>
+        <td><%= trip.child_price %></td>
+        <td><%= trip.adult_price %></td>
+        <td><%= trip.currency %></td>
+        <td><%= trip.available_places %></td>
+        <td><%= trip.destination_id %></td>
+        <td><%= link_to 'Show', trip %></td>
+        <td><%= link_to 'Edit', edit_trip_path(trip) %></td>
+        <td><%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Trip', new_trip_path %>

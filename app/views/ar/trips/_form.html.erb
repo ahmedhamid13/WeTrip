@@ -1,0 +1,82 @@
+<%= form_with(model: trip, local: true) do |form| %>
+  <% if trip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
+
+      <ul>
+        <% trip.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :en_name %>
+    <%= form.text_field :en_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :en_description %>
+    <%= form.text_area :en_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :en_leaving_place %>
+    <%= form.text_field :en_leaving_place %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ar_name %>
+    <%= form.text_field :ar_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ar_description %>
+    <%= form.text_area :ar_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ar_leaving_place %>
+    <%= form.text_field :ar_leaving_place %>
+  </div>
+
+  <div class="field">
+    <%= form.label :leaving_time %>
+    <%= form.datetime_select :leaving_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :returning_time %>
+    <%= form.datetime_select :returning_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :child_price %>
+    <%= form.text_field :child_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :adult_price %>
+    <%= form.text_field :adult_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :currency %>
+    <%= form.number_field :currency %>
+  </div>
+
+  <div class="field">
+    <%= form.label :available_places %>
+    <%= form.number_field :available_places %>
+  </div>
+
+  <div class="field">
+    <%= form.label :destination_id %>
+    <%= form.text_field :destination_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

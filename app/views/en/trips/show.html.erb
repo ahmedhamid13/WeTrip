@@ -1,0 +1,150 @@
+ <!-- Start Trip -->
+    <div class="trip">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 info">
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active rounded shadow hvr-grow" id="nav-trip-tab" data-toggle="tab" href="#nav-trip" role="tab" aria-controls="nav-trip" aria-selected="true">About Trip</a>
+                <a class="nav-item nav-link  rounded shadow hvr-grow" id="nav-info-tab" data-toggle="tab" href="#nav-info" role="tab" aria-controls="nav-info" aria-selected="false">Details</a>
+                <a class="nav-item nav-link  rounded shadow hvr-grow" id="nav-review-tab" data-toggle="tab" href="#nav-review" role="tab" aria-controls="nav-review" aria-selected="false">Reviews</a>
+              </div>
+            </nav>
+            
+            <div class="tab-content p-1" id="nav-tabContent">
+              <!-- Start Nav Trip Tab -->
+              <div class="tab-pane fade show active" id="nav-trip" role="tabpanel" aria-labelledby="nav-trip-tab">
+                <h2><%= @trip.en_name %></h2>
+                <p><%= @trip.en_description %></p>
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                  <ol class="carousel-indicators">
+                      <% if @trip.images.attached?%>
+                        <% @trip.images.each_with_index do |image, t| %>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="<%= t+1 %>" <% if (t==0) %>class="active"<% end %>></li>
+                        <% end %>
+                      <% end %>
+                  </ol>
+                  <div class="carousel-inner">
+                    <% if @trip.images.attached?%>
+                      <% @trip.images.each_with_index do |image, t| %>
+                        <div class="carousel-item <% if (t==0) %>active<% end %>">
+                          <%=image_tag(image, class: 'd-block img-fluid rounded') %>
+                        </div>
+                      <% end %>
+                    <% end %>
+                  </div>
+                  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+                <div class="information">
+                  <h3>Main Information</h3>
+                  <span><%= @trip.adult_price %></span>
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <td class="main">Leaving Place</td>
+                        <td><%= @trip.en_leaving_place %></td>
+                      </tr>
+                      <tr>
+                        <td class="main">Leaving at</td>
+                        <td><%= @trip.leaving_time %></td>
+                      </tr>
+                      <tr>
+                        <td class="main">Returning at</td>
+                        <td><%= @trip.returning_time %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!-- End Nav Trip Tab -->
+              <!-- Start Nav Info Tab -->
+              <div class="tab-pane fade" id="nav-info" role="tabpanel" aria-labelledby="nav-info-tab">
+                <div class="info info-detail">
+                  <h3>We Offer</h3>
+                  <% @trip.offers.each do |offer| %>
+                    <% if offer.is_available %>
+                      <i class="fas fa-check text-success"></i> <span><%= offer.en_name %></span>
+                      <div class="d-block"></div>                
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="info info-detail times">
+                  <h3>We Don't Offer</h3>
+                  <% @trip.offers.each do |offer| %>
+                    <% unless offer.is_available %>
+                      <i class="fas fa-times text-danger"></i> <span><%= offer.en_name %></span>
+                      <div class="d-block"></div>                  
+                    <% end %>
+                  <% end %>
+                </div>
+                <hr />
+                <div class="information">
+                  <ul class="timeline">
+                    <% @trip.days.each do |day| %>
+                      <li>
+                        <h4 href="#!">Day <%= day.number %></h4>
+                        <% day.schedules.each do |schedule| %>
+                          <p><%= schedule.time %> <%= schedule.en_name %></p>
+                        <% end %>
+                      </li>
+                    <% end %>
+            			</ul>
+                </div>
+                <hr />
+              </div>
+              <!-- End Nav Info Tab -->
+              <div class="tab-pane fade" id="nav-review" role="tabpanel" aria-labelledby="nav-review-tab">...</div>
+            </div>
+
+          </div>
+          <div class="col-md-4 info booking border-left p-1">
+            <div class="information">
+              <h3>Book Here</h3>
+              <%= form_with(model: @book_trip, url: "/en/trips/#{@trip.id}", local: true, id: "new_book") do |form| %>
+                <% if @book_trip.errors.any? %>
+                  <div class="alert alert-danger alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <% @book_trip.errors.full_messages.each do |message| %>
+                      <h6 class="text-danger text-center"><%= message %></h6>
+                    <% end %>
+                  </div>
+                <% end %>
+
+                <div class="form-group">
+                  <%= form.label(:adults, "Number of Adult (#{@trip.adult_price})" )%>
+                  <%= form.number_field :adults, in: 1..@trip.available_places, value: 0, class: 'form-control' %>
+                </div>
+
+                <div class="form-group">
+                  <%= form.label(:children, "Number of Children (#{@trip.child_price})") %>
+                  <%= form.number_field :children, in: 1..@trip.available_places, value: 0, class: 'form-control' %>
+                </div>
+
+                <%= hidden_field_tag(:adult_price, @trip.adult_price) %>
+                <%= hidden_field_tag(:child_price, @trip.child_price) %>
+                <%= form.hidden_field :trip_id, value: @trip.id %>
+
+                <div class="form-group">
+                  <%= form.submit "Book trip",class: 'btn text-center' %>
+                </div>
+                <hr>
+                <span class="text-center" id="total_count">Total 0.0</span>
+              <% end %>
+            </div>
+          </div>
+
+        </div> <!-- /Row -->
+      </div> <!-- /Container -->
+    </div> <!-- /Trip -->
+    <!-- End Trip -->
+
+<% content_for :javascript_includes do %>
+    <%= javascript_pack_tag 'trips', 'data-turbolinks-track': 'reload' %>
+<% end %>

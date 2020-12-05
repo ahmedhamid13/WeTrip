@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  adults: 1
+  children: 1
+  total_price: 9.99
+  is_paid: false
+  trip: one
+  user: one
+
+two:
+  adults: 1
+  children: 1
+  total_price: 9.99
+  is_paid: false
+  trip: two
+  user: two

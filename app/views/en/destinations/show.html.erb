@@ -1,0 +1,68 @@
+<div class="category">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-6 info">
+        <h2><%= @destination.en_name %></h2>
+        <p><%= @destination.en_description %></p>
+      </div>
+
+      <div class="col-md-6 info">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <% @destination.trips.each_with_index do |trip, t1| %>
+              <% if trip.images.attached?%>
+                <% trip.images.each_with_index do |image, t2| %>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="<%= t1+t2+1 %>" <% if (t1+t2==0) %>class="active"<% end %>></li>
+                <% end %>
+              <% end %>
+            <% end %>
+          </ol>
+          <div class="carousel-inner">
+            <% @destination.trips.each_with_index do |trip, t1| %>
+              <% if trip.images.attached?%>
+                <% trip.images.each_with_index do |image, t2| %>
+                  <div class="carousel-item <% if (t1+t2==0) %>active<% end %>">
+                    <%=image_tag(image, class: 'd-block img-fluid rounded') %>
+                  </div>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+
+    </div> <!-- /Row -->
+  </div> <!-- /Container -->
+</div> <!-- /Category -->
+<!-- End Category -->
+<!-- Start Images -->
+<div class="images text-center">
+  <div class="container-fluid">
+    <h2 class="h1">Trips</h2>
+    <div class="owl-carousel owl-theme owl-img" style="direction: ltr;">
+      <% @destination.trips.each do |trip| %>
+        <%= link_to en_trip_path(trip) do %>
+          <div class="item">
+          <div class="hovereffect">
+                <%= (trip.images.attached?) ? image_tag(trip.images[0], class: 'img-fluid hvr-glow') : image_tag("dest/neom.webp", class: 'img-fluid hvr-glow') %>
+                <div class="overlay">
+                    <h2 class="font-arabic"><%= trip.en_name %></h2>
+                    <p><%= trip.adult_price %></p>
+                </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div> <!--/Container-fluid -->
+</div> <!--/Images -->
+<!-- End Images -->

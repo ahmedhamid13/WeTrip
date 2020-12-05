@@ -1,0 +1,251 @@
+body {
+    direction: ltr;
+}
+/* Start Top Bar */
+.top-bar .w-email {
+  font-family: nexa-bold;
+}
+.top-bar .modal-title {
+  font-family: acumin;
+  font-size: 21px;
+}
+.top-bar .media-heading {
+  font-family: acumin;
+  font-size: 23px;
+}
+.top-bar .bootstrap-select.fit-width .dropdown-toggle .filter-option-inner-inner {
+  font-size: 19px;
+  font-family: nexa-bold;
+}
+.top-bar .bootstrap-select .dropdown-menu li a {
+  font-family: acumin;
+  font-size: 17px;
+  text-align: right;
+}
+.top-bar .bootstrap-select .dropdown-menu li:first-child a {
+  border-bottom: 2px dotted #F1A804;
+  padding-bottom: 6px;
+  color: #3072A0;
+  font-family: hasen-tunisia;
+}
+.top-bar .bootstrap-select .dropdown-menu li:last-child a {
+  color: #F1A804;
+}
+.top-bar .bootstrap-select .dropdown-menu li a:hover,
+.top-bar .bootstrap-select .dropdown-menu li a:focus {
+  color: #F1A804;
+}
+/* End Top Bar */
+/* Start Navbar */
+.navbar .navbar-nav .nav-item > .nav-link {
+  font-family: nexa-light;
+  font-weight: 600;
+  font-size: 22px;
+}
+/* End Navbar */
+/* Start Header */
+.header h2 {
+  color: #FFF;
+  font-size: 71px;
+  font-family: Kaushan Script;
+  letter-spacing: 1px;
+}
+.header .btn {
+  font-family: nexa-bold;
+}
+.header .carousel-control-next-icon {
+    background-image: asset-data-url("next.png");
+}
+.header .carousel-control-prev-icon {
+    background-image: asset-data-url("back.png");
+}
+/* End Header */
+/* Start Tours */
+.tours .h1 {
+  font-family: Nexa-light;
+  font-weight: 600;
+}
+.tours .text-block h3 {
+  color: #FFF;
+  font-family: Kaushan script;
+  font-size: 76px;
+}
+.tours .tour .button-blc {
+  left: 10px;
+}
+.tours .tour .button-blc .btn {
+  font-family: nexa-bold;
+}
+/* End Tours */
+/* Start About */
+.about .info h1 {
+  font-family: Nexa-light;
+  font-weight: 600;
+  font-size: 35px;
+}
+.about .info p {
+  font-size: 18px;
+  font-family: acumin;
+  line-height: 1.9;
+  text-align: left;
+}
+.about .info .btn {
+  font-family: nexa-bold;
+}
+.about .features h4 {
+  font-family: nexa-Light;
+  font-weight: 600;
+  text-align: left;
+}
+/* End About */
+/* Start Images */
+.images .h1 {
+  font-family: nexa-Light;
+  font-weight: 600;
+  font-size: 35px;
+}
+.images .font-arabic {
+  font-family: Kaushan script;
+}
+.hovereffect h2 {
+  font-family: Kaushan script;
+}
+.hovereffect p {
+  font-family: nexa-light;
+  font-weight: 600;
+}
+/* End Images */
+/* Start Contact */
+.contact .info h2 {
+  font-family: nexa-light;
+  font-weight: 600;
+}
+.contact .info .form-control {
+  font-family: nexa-bold;
+}
+.contact .info .btn {
+  font-family: nexa-bold;
+}
+.contact .info p {
+  font-family: acumin;
+}
+/* End Contact */
+/* Start Category */
+.category .info h2 {
+  font-family: nexa-light;
+  font-weight: 600;
+  font-size: 33px;
+}
+.category .info p {
+  font-size: 16px;
+  font-family: acumin;
+}
+/* End Category */
+/* Start Trip */
+.trip .nav-tabs .nav-link {
+  font-family: nexa-light;
+  font-weight: 600;
+}
+.trip .info h2 {
+  font-family: nexa-light;
+  font-weight: 600;
+  font-size: 33px;
+}
+.trip .info p {
+  font-size: 16px;
+  font-family: acumin;
+}
+.trip .booking label {
+  font-family: nexa-light;
+  font-weight: 600;
+}
+.trip .booking .form-control {
+  font-family: acumin;
+}
+.trip .booking .btn {
+  font-family: nexa-bold;
+}
+.trip .information h3 {
+  font-family: nexa-light;
+  font-weight: 600;
+}
+.trip .information span {
+  font-family: nexa-bold;
+}
+.trip .information .table .main {
+  font-family: nexa-bold;
+}
+.trip .information .table td {
+  font-family: nexa-bold;
+}
+.trip .info-detail h3 {
+  font-family: acumin;
+}
+.trip .info-detail span {
+  font-family: nexa-bold;
+}
+.trip .information .timeline p {
+  font-family: acumin;
+}
+.trip .information .timeline h4 {
+  font-family: nexa-light;
+  font-weight: 600;
+}
+.trip .information ul.timeline > li:before {
+  left: 0;
+}
+.trip .information ul.timeline:before {
+  left: 21px;
+}
+.trip .information ul.timeline > li {
+  padding-left: 53px;
+}
+/* End Trip */
+/* Start Contact Us */
+.co-us h3 {
+  font-family: nexa-light;
+  font-weight: 600;
+}
+.co-us p {
+  font-family: acumin;
+}
+/* End Contact Us */
+/* Start Checkout */
+.checkout .confirmation-box h4  {
+  font-family: nexa-light;
+  font-weight: 600;
+}
+.checkout .confirmation-box span {
+  font-family: nexa-bold;
+}
+.checkout .confirmation-box .btn {
+  font-family: acumin;
+}
+.checkout .products-box .table thead th {
+  font-family: nexa-bold;
+}
+.checkout .products-box .table td {
+  font-family: nexa-bold;
+}
+.checkout .notes .table td {
+  font-family: nexa-bold;
+}
+.checkout .notes .btn {
+  font-family: Acumin;
+}
+/* End Checkout */
+/* Start Register */
+.register .signUp h2 {
+  font-family: nexa-light;
+  font-weight: 600;
+}
+.register .signUp label {
+  font-family: nexa-bold;
+}
+.register .signUp .form-control {
+  font-family: acumin
+}
+.register .signUp .btn {
+  font-family: nexa-bold;
+}
+/* End Register */

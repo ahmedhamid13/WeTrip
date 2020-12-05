@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  en_name: MyString
+  en_description: MyText
+  en_leaving_place: MyString
+  ar_name: MyString
+  ar_description: MyText
+  ar_leaving_place: MyString
+  leaving_time: 2020-12-05 11:15:09
+  returning_time: 2020-12-05 11:15:09
+  child_price: 1.5
+  adult_price: 1.5
+  currency: 1
+  available_places: 1
+  destination: one
+
+two:
+  en_name: MyString
+  en_description: MyText
+  en_leaving_place: MyString
+  ar_name: MyString
+  ar_description: MyText
+  ar_leaving_place: MyString
+  leaving_time: 2020-12-05 11:15:09
+  returning_time: 2020-12-05 11:15:09
+  child_price: 1.5
+  adult_price: 1.5
+  currency: 1
+  available_places: 1
+  destination: two

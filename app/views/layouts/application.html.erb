@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WeTrip</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= favicon_link_tag 'logo.png' %>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Cairo|Tajawal|Kaushan+Script&display=swap" rel="stylesheet">
+
+
+    <!-- OWL Carousel -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= yield :style_includes %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body style="margin:0;">
+    <% if request.path_info.include?('ar') %>
+      <%= render 'ar/includes/header' %>
+      <%= render 'ar/includes/messages' %>
+    <% else %>
+      <%= render 'en/includes/header' %>
+      <%= render 'en/includes/messages' %>
+    <% end %>
+
+    <%# <div id="loader"></div> %>
+
+    <%# <div style="display:none;" id="myDiv" class="main-body animate-bottom"> %>
+    <div id="myDiv" class="animate-bottom main-body">
+      <%= yield %>
+          <% if request.path_info.include?('ar') %>
+            <%= render 'ar/includes/footer' %>
+          <% else %>
+            <%= render 'en/includes/footer' %>
+          <% end %>
+    </div>
+
+    <div id="loader"></div>
+
+    <!-- Optional JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <%= javascript_pack_tag 'jquery-flexslider-min.js', 'data-turbolinks-track': 'reload' %>
+
+    <!-- OWL Carousel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
+
+    <%= javascript_pack_tag 'loading', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'bootstrap-select', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'plugin', 'data-turbolinks-track': 'reload' %>
+    <%= yield :javascript_includes %>
+  </body>
+</html>

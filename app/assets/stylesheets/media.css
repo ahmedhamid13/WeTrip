@@ -1,0 +1,24 @@
+/* Navbar */
+@media (max-width: 991px) {
+  .navbar {
+    background-color: #FAFAFA;
+  }
+  .navbar-light .navbar-toggler {
+    margin-bottom: 10px;
+  }
+  .navbar .navbar-nav .nav-item > .nav-link {
+    margin-bottom: 10px;
+  }
+}
+/* Start Header */
+@media (max-width: 425px) {
+  .header h2 {
+    font-size: 45px !important;
+  }
+}
+/* Start Destaintion */
+@media (max-width: 768px) {
+    .tours .text-block h3 {
+      font-size: 40px !important
+    }
+}

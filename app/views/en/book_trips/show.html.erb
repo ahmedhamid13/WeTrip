@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Adults:</strong>
+  <%= @book_trip.adults %>
+</p>
+
+<p>
+  <strong>Children:</strong>
+  <%= @book_trip.children %>
+</p>
+
+<p>
+  <strong>Total price:</strong>
+  <%= @book_trip.total_price %>
+</p>
+
+<p>
+  <strong>Is paid:</strong>
+  <%= @book_trip.is_paid %>
+</p>
+
+<p>
+  <strong>Trip:</strong>
+  <%= @book_trip.trip_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @book_trip.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_book_trip_path(@book_trip) %> |
+<%= link_to 'Back', book_trips_path %>

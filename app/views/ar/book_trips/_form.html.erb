@@ -1,0 +1,47 @@
+<%= form_with(model: book_trip, local: true) do |form| %>
+  <% if book_trip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(book_trip.errors.count, "error") %> prohibited this book_trip from being saved:</h2>
+
+      <ul>
+        <% book_trip.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :adults %>
+    <%= form.number_field :adults %>
+  </div>
+
+  <div class="field">
+    <%= form.label :children %>
+    <%= form.number_field :children %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_price %>
+    <%= form.text_field :total_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_paid %>
+    <%= form.check_box :is_paid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :trip_id %>
+    <%= form.text_field :trip_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

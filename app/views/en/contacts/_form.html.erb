@@ -1,0 +1,28 @@
+<%= form_with(model: contact, url: en_contacts_path(contact), local: true) do |form| %>
+  <% if contact.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% contact.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <form>
+      <div class="form-group">
+        <%= form.text_field :name, autofocus: true, autocomplete: "name" ,:class=> 'form-control', :placeholder => 'Name' %>
+      </div>
+      <div class="form-group">
+        <%= form.email_field :email, autocomplete: "name" ,:class=> 'form-control', :placeholder => 'Email Address', required: true %>
+      </div>
+      <div class="form-group">
+        <%= form.text_field :mobile, autocomplete: "mobile" ,:class=> 'form-control', :placeholder => 'Phone Number', size: "60x10" %>
+      </div>
+      <div class="form-group">
+        <%= form.text_area :message ,  placeholder: "Your Request",:class=> 'form-control', required: true %>
+      </div>
+      <div class="text-right">
+      <%= form.submit "Send" ,:class=>'btn'%>
+      </div>
+    <% end %>
+</form>
