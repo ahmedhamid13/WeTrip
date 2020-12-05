@@ -4,10 +4,10 @@
         <div class="carousel-inner" >
             <div class="carousel-item active slider"  style="background-image: url(<%= url_for(@destinations.first.image) %>)">
                 <div class="carousel-caption space">
-                        <h2><%= @destinations.first.name %></h2>
+                        <h2><%= @destinations.first.en_name %></h2>
                 </div>
                         <div class="carousel-caption">
-                            <%= link_to @destinations.first, class: 'btn ' do %>Book Now<% end %>
+                            <%= link_to en_destination_path(@destinations.first), class: 'btn ' do %>Book Now<% end %>
                         </div>
             </div>   
 
@@ -15,10 +15,10 @@
 
                 <div class="carousel-item slider"  style="background-image: url(<%= url_for(destination.image) %>)">
                     <div class="carousel-caption space">
-                            <h2><%= destination.name %></h2>
+                            <h2><%= destination.en_name %></h2>
                     </div>
                             <div class="carousel-caption">
-                                <%= link_to destination, class: 'btn ' do %>Book Now<% end %>
+                                <%= link_to en_destination_path(destination), class: 'btn ' do %>Book Now<% end %>
                             </div>
                 </div>   
             <% end %>

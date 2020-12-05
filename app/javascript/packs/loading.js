@@ -1,7 +1,7 @@
 
 function loading_fn() {
     document.getElementById( 'top' ).scrollIntoView();
-    setTimeout(init, 2000);
+    setTimeout(init, 1800);
 }
 
 function init() {
