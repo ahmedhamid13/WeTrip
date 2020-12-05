@@ -37,7 +37,7 @@
 <!-- Start Tours -->
 <div class="tours text-center">
     <div class="container-fluid">
-    <div class="owl-carousel owl-theme owl-tours">
+    <div class="owl-carousel owl-theme owl-tours" style="direction: ltr;">
     <% @destinations.each do |destination| %>
         <%= link_to en_destination_path(destination) do %>
         <div class="item">
@@ -63,7 +63,9 @@
         <h1>About Us</h1>
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
         <div class="text-right">
-            <a href="about.html"><button class="btn">More</button></a>
+            <%= link_to en_about_path do %>
+                <button class="btn">More</button>
+            <% end %>
         </div>
         </div>
         <div class="col-md-6">
@@ -78,7 +80,9 @@
         <h1>Trips</h1>
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
         <div class="text-right">
-            <a href="images.html"><button class="btn">More</button></a>
+            <%= link_to en_images_path do %>
+                <button class="btn">More</button>
+            <% end %>
         </div>
         </div>
         <!-- For Mobile Only -->

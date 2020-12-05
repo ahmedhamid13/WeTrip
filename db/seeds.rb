@@ -17,7 +17,7 @@ def create_destination_and_trips(destintion)
         ar_name: destintion,
         ar_description: Faker::Lorem.paragraph
     )
-    dest.image.attach(io: File.open(Dir['app/assets/images/dest/*.webp'].sample), filename: "destination.jpg")
+    # dest.image.attach(io: File.open(Dir['app/assets/images/dest/*.webp'].sample), filename: "destination.jpg")
     rand(3..8).times do |t|
         trip = Trip.create!(
             en_name: Faker::FunnyName.name,
@@ -33,9 +33,9 @@ def create_destination_and_trips(destintion)
             adult_price: rand(300.0..500.0).round(2),
             destination_id: dest.id
         )
-        trip.images.attach(io: File.open(Dir['app/assets/images/dest/*.webp'].sample), filename: "trip1.jpg")
-        trip.images.attach(io: File.open(Dir['app/assets/images/dest/*.webp'].sample), filename: "trip2.jpg")
-        trip.images.attach(io: File.open(Dir['app/assets/images/dest/*.webp'].sample), filename: "trip2.jpg")
+        # trip.images.attach(io: File.open(Dir['app/assets/images/dest/*.webp'].sample), filename: "trip1.jpg")
+        # trip.images.attach(io: File.open(Dir['app/assets/images/dest/*.webp'].sample), filename: "trip2.jpg")
+        # trip.images.attach(io: File.open(Dir['app/assets/images/dest/*.webp'].sample), filename: "trip2.jpg")
         create_days_schedule(trip)
         create_offers(trip)
     end
