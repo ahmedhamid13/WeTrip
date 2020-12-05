@@ -1,4 +1,5 @@
 <!-- Start Header -->
+<% if @destinations.first.image.attached? %>
 <div class="header">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner" >
@@ -33,6 +34,8 @@
         </a>
     </div>
 </div>
+<% end %>
+
 <!-- End Header -->
 <!-- Start Tours -->
 <div class="tours text-center">

@@ -117,6 +117,11 @@
                 <%end%>
             </li>
           <%else%>
+          <% if current_user.superadmin_role?%>
+            <li class="nav-item hvr-float" id="admin">
+              <a class="nav-link" href="/admin">Dashboard</a>
+            </li>
+          <% end %>
           <li class='nav-item '>
             <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link ' do %>
                 Sign Out
