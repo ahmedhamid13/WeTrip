@@ -10,7 +10,7 @@
   <% end %>
   <form>
       <div class="form-group">
-        <%= form.text_field :name, autocomplete: "name" ,:class=> 'form-control', :placeholder => 'Name' %>
+        <%= form.text_field :name, autofocus: true, autocomplete: "name" ,:class=> 'form-control', :placeholder => 'Name' %>
       </div>
       <div class="form-group">
         <%= form.email_field :email, autocomplete: "name" ,:class=> 'form-control', :placeholder => 'Email Address', required: true %>

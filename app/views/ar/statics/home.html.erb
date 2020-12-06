@@ -1,13 +1,14 @@
 <!-- Start Header -->
+<% if @destinations.first.image.attached? %>
 <div class="header">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner" >
             <div class="carousel-item active slider"  style="background-image: url(<%= url_for(@destinations.first.image) %>)">
                 <div class="carousel-caption space">
-                        <h2><%= @destinations.first.name %></h2>
+                        <h2><%= @destinations.first.ar_name %></h2>
                 </div>
                         <div class="carousel-caption">
-                            <%= link_to @destinations.first, class: 'btn ' do %>Book Now<% end %>
+                            <%= link_to ar_destination_path(@destinations.first), class: 'btn ' do %>Book Now<% end %>
                         </div>
             </div>   
 
@@ -15,10 +16,10 @@
 
                 <div class="carousel-item slider"  style="background-image: url(<%= url_for(destination.image) %>)">
                     <div class="carousel-caption space">
-                            <h2><%= destination.name %></h2>
+                            <h2><%= destination.ar_name %></h2>
                     </div>
                             <div class="carousel-caption">
-                                <%= link_to destination, class: 'btn ' do %>Book Now<% end %>
+                                <%= link_to ar_destination_path(destination), class: 'btn ' do %>Book Now<% end %>
                             </div>
                 </div>   
             <% end %>
@@ -33,18 +34,20 @@
         </a>
     </div>
 </div>
+<% end %>
+
 <!-- End Header -->
 <!-- Start Tours -->
 <div class="tours text-center">
     <div class="container-fluid">
     <div class="owl-carousel owl-theme owl-tours">
-    <% @destinations.limit(6).each do |destination| %>
-        <%= link_to destination do %>
-        <div class="item" >
+    <% @destinations.each do |destination| %>
+        <%= link_to ar_destination_path(destination) do %>
+        <div class="item">
             <div class="hovereffect">
-                <%= (destination.image.attached?) ? image_tag(destination.image, class: 'img-fluid') : image_tag("dest/aldesah.webp", class: 'img-fluid ') %>
+                <%= (destination.image.attached?) ? image_tag(destination.image, class: 'img-fluid') : image_tag("img_no.gif", class: 'img-fluid ') %>
                 <div class="overlay">
-                    <h2><%= destination.name %></h2>
+                    <h2><%= destination.ar_name %></h2>
                 </div>
             </div>
         </div>
@@ -59,26 +62,30 @@
     <div class="container">
     <div class="row">
 
-        <div class="col-md-6 info">
-        <h1>About Us</h1>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        <div class="col-md-6 mb-3 info">
+        <h1 class="hvr-float">About Us</h1>
+        <p class="border-top border-dark pt-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
         <div class="text-right">
-            <a href="about.html"><button class="btn">More</button></a>
+            <%= link_to ar_about_path do %>
+                <button class="btn">More</button>
+            <% end %>
         </div>
         </div>
-        <div class="col-md-6">
-        <%= image_tag("hisma.webp", class: 'img-fluid' ) %>
-
+        <div class="col-md-6 mb-3">
+        <%= image_tag("harrat.webp", class: 'img-fluid rounded hvr-glow' ) %>
         </div>
+        <hr />
         <div class="col-md-6 d-none d-md-block">
-        <%= image_tag("hisma.webp", class: 'img-fluid' ) %>
+        <%= image_tag("hisma.webp", class: 'img-fluid rounded hvr-glow' ) %>
 
         </div>
         <div class="col-md-6 info">
-        <h1>Trips</h1>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        <h1 class="hvr-float">Trips</h1>
+        <p class="border-top border-dark pt-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
         <div class="text-right">
-            <a href="images.html"><button class="btn">More</button></a>
+            <%= link_to ar_images_path do %>
+                <button class="btn">More</button>
+            <% end %>
         </div>
         </div>
         <!-- For Mobile Only -->
@@ -97,13 +104,13 @@
     <div class="owl-carousel owl-theme owl-img">
     <% @trips.each do |trip| %>
 
-        <%= link_to trip do %>
+        <%= link_to ar_trip_path(trip) do %>
             <div class="item">
             <div class="hovereffect">
-            <%= (trip.images.attached?) ? image_tag(trip.images[0], class: 'img-fluid ') : image_tag("dest/neom.webp", class: 'img-fluid ') %>
+            <%= (trip.images.attached?) ? image_tag(trip.images[0], class: 'img-fluid ') : image_tag("img_no.gif", class: 'img-fluid ') %>
             <div class="overlay">
-                    <h2 class="font-arabic"><%= trip.name %></h2>
-                    <p> <%= trip.adult_price %> </p>
+                    <h2 class="font-arabic"><%= trip.ar_name %></h2>
+                    <p> <%= trip.adult_price %> R.S Per Person</p>
                 </div>
             </div>
         </div>
@@ -119,27 +126,23 @@
     <div class="row">
         <div class="col-md-6 contact-us info">
         <h2>Contact Us</h2>
-        <%= render "ar/contacts/form", contact: @contact %>
+        <%= render "en/contacts/form", contact: @contact %>
         </div>
         <div class="col-md-6 info">
         <h2>Blog</h2>
         <div class="row">
+            <% if @posts.present? %>
+            <% @posts.each do |post| %>
+                <div class="col-md-6 m-for-b">
+                    <%= (post.image.attached?) ? image_tag(post.image, class: 'img-fluid hvr-glow') : image_tag("img_no.gif", class: 'img-fluid hvr-glow') %>
+                </div>
 
-            <div class="col-md-6 m-for-b">
-            <%= image_tag("aldesh.webp", class: 'img-fluid' ) %>
-
-            </div>
-            <div class="col-md-6 m-for-b">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
-            </div>
-            <div class="col-md-6 m-for-b">
-            <%= image_tag("aldesh.webp", class: 'img-fluid' ) %>
-
-            </div>
-            <div class="col-md-6 m-for-b">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
-            </div>
-
+                <div class="col-md-6 m-for-b">
+                    <h5><%= post.ar_title.first(20) %></h5>
+                    <p><%= post.ar_body.first(100) %></p>
+                </div>
+            <% end %>
+            <% end %>
         </div>
         </div>
 

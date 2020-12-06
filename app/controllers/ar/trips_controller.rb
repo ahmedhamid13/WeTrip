@@ -10,6 +10,7 @@ class Ar::TripsController < ApplicationController
   # GET /trips/1
   # GET /trips/1.json
   def show
+    @book_trip = BookTrip.new
   end
 
   # GET /trips/new
