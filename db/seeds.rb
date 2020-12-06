@@ -17,7 +17,7 @@ def create_destination_and_trips(destintion)
         ar_name: destintion,
         ar_description: Faker::Lorem.paragraph
     )
-    dest.image.attach(io: File.open(Dir['app/assets/images/*.webp'].sample), filename: "destination.jpg")
+    # dest.image.attach(io: File.open(Dir['app/assets/images/*.webp'].sample), filename: "destination.jpg")
     rand(3..5).times do |t|
         trip = Trip.create!(
             en_name: Faker::FunnyName.name,
