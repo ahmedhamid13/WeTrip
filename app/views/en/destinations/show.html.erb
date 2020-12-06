@@ -59,7 +59,7 @@
         <%= link_to en_trip_path(trip) do %>
           <div class="item">
           <div class="hovereffect">
-                <%= (trip.images.attached?) ? image_tag(trip.images[0], class: 'img-fluid hvr-glow') : image_tag("img_no.gif", class: 'img-fluid hvr-glow') %>
+                <%= (trip.images.attached?) ? image_tag(trip.images[0], class: 'img-fluid hvr-glow') : image_tag("neom.webp", class: 'img-fluid hvr-glow') %>
                 <div class="overlay">
                     <h2 class="font-arabic"><%= trip.en_name %></h2>
                     <p><%= trip.adult_price %></p>

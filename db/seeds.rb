@@ -65,14 +65,14 @@ def create_offers(trip)
         Offer.create!(
             en_name: Faker::FunnyName.name,
             ar_name: Faker::FunnyName.name,
-            is_available: Faker::Boolean.boolean(true_ratio: 0.65),
+            is_available: Faker::Boolean.boolean(true_ratio: 0.68),
             trip_id: trip.id
         )
     end
 end
 
 def create_reviews(trip)
-    rand(1..4).times do |t|
+    rand(2..4).times do |t|
         Review.create!(
             comment: Faker::Lorem.paragraph,
             trip_id: trip.id,
@@ -98,7 +98,7 @@ create_user("zeyad", "saleh", "zeyad@mail.com", "123456")
     create_user(Faker::Name.name, Faker::Name.name, Faker::Internet.email, "123456")
 end
 
-4.times do |t|
+6.times do |t|
     create_destination_and_trips(Faker::Ancient.hero)
 end
 

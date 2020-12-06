@@ -45,7 +45,7 @@
         <%= link_to en_destination_path(destination) do %>
         <div class="item">
             <div class="hovereffect">
-                <%= (destination.image.attached?) ? image_tag(destination.image, class: 'img-fluid') : image_tag("img_no.gif", class: 'img-fluid ') %>
+                <%= (destination.image.attached?) ? image_tag(destination.image, class: 'img-fluid') : image_tag("aldesah.webp", class: 'img-fluid ') %>
                 <div class="overlay">
                     <h2><%= destination.en_name %></h2>
                 </div>
@@ -76,7 +76,7 @@
         </div>
         <hr />
         <div class="col-md-6 d-none d-md-block">
-        <%= image_tag("hisma.webp", class: 'img-fluid rounded hvr-glow' ) %>
+        <%= image_tag("aldesh.webp", class: 'img-fluid rounded hvr-glow' ) %>
 
         </div>
         <div class="col-md-6 info">
@@ -107,7 +107,7 @@
         <%= link_to en_trip_path(trip) do %>
             <div class="item">
             <div class="hovereffect">
-            <%= (trip.images.attached?) ? image_tag(trip.images[0], class: 'img-fluid ') : image_tag("img_no.gif", class: 'img-fluid ') %>
+            <%= (trip.images.attached?) ? image_tag(trip.images[0], class: 'img-fluid ') : image_tag("harrat.webp", class: 'img-fluid ') %>
             <div class="overlay">
                     <h2 class="font-arabic"><%= trip.en_name %></h2>
                     <p> <%= trip.adult_price %> R.S Per Person</p>
