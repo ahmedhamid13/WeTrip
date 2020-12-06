@@ -17,7 +17,7 @@ def create_destination_and_trips(destintion)
         ar_name: destintion,
         ar_description: Faker::Lorem.paragraph
     )
-    # dest.image.attach(io: File.open(Dir['app/assets/images/dest/*.webp'].sample), filename: "destination.jpg")
+    dest.image.attach(io: File.open(Dir['app/assets/images/*.webp'].sample), filename: "destination.jpg")
     rand(3..5).times do |t|
         trip = Trip.create!(
             en_name: Faker::FunnyName.name,
@@ -33,11 +33,12 @@ def create_destination_and_trips(destintion)
             adult_price: rand(300.0..500.0).round(2),
             destination_id: dest.id
         )
-        # trip.images.attach(io: File.open(Dir['app/assets/images/dest/*.webp'].sample), filename: "trip1.jpg")
-        # trip.images.attach(io: File.open(Dir['app/assets/images/dest/*.webp'].sample), filename: "trip2.jpg")
-        # trip.images.attach(io: File.open(Dir['app/assets/images/dest/*.webp'].sample), filename: "trip2.jpg")
+        # trip.images.attach(io: File.open(Dir['app/assets/images/*.webp'].sample), filename: "trip1.jpg")
+        # trip.images.attach(io: File.open(Dir['app/assets/images/*.webp'].sample), filename: "trip2.jpg")
+        # trip.images.attach(io: File.open(Dir['app/assets/images/*.webp'].sample), filename: "trip2.jpg")
         create_days_schedule(trip)
         create_offers(trip)
+        create_reviews(trip)
     end
 end
 
@@ -70,6 +71,16 @@ def create_offers(trip)
     end
 end
 
+def create_reviews(trip)
+    rand(1..4).times do |t|
+        Review.create!(
+            comment: Faker::Lorem.paragraph,
+            trip_id: trip.id,
+            user_id: User.all.sample.id
+        )
+    end
+end
+
 def create_posts
     Post.create!(
         en_title: Faker::FunnyName.name,
@@ -83,7 +94,7 @@ end
 create_user("ahmed", "abdelhamid", "ahmed@mail.com", "123456")
 create_user("zeyad", "saleh", "zeyad@mail.com", "123456")
 
-2.times do |t|
+5.times do |t|
     create_user(Faker::Name.name, Faker::Name.name, Faker::Internet.email, "123456")
 end
 

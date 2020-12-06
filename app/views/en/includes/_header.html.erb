@@ -77,7 +77,7 @@
 <div class="nav-logo">
   <div class="container">
     <div class="logo-img m-2">
-      <%= image_tag("logo.png", class: 'img-fluid') %>
+      <%= image_tag("logo.png", class: 'img-fluid hvr-grow') %>
     </div>
   </div> <!-- /Container -->
 </div> <!-- /Nav-logo -->
@@ -107,23 +107,23 @@
           <% if !current_user %>
 
           <li class="nav-item hvr-float" id="register">
-              <%= link_to new_user_registration_path ,  class: 'nav-link ' do %>
+              <%= link_to new_user_registration_path ,  class: 'nav-link bg-warning' do %>
                 Register
             <%end%>
           </li>
           <li class="nav-item hvr-float" id="login">
-          <%= link_to new_user_session_path ,  class: 'nav-link ' do %>
+          <%= link_to new_user_session_path ,  class: 'nav-link bg-success' do %>
                     Login
                 <%end%>
             </li>
           <%else%>
           <% if current_user.superadmin_role?%>
             <li class="nav-item hvr-float" id="admin">
-              <a class="nav-link" href="/admin">Dashboard</a>
+              <a class="nav-link bg-success" href="/admin">Dashboard</a>
             </li>
           <% end %>
           <li class='nav-item '>
-            <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link ' do %>
+            <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link bg-danger ' do %>
                 Sign Out
             <%end%>
             </li>

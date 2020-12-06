@@ -16,12 +16,12 @@ body {
    display: none;
  }
 /* Fonts */
-@font-face { font-family: ge-snd-book; src: url("../fonts/GE-Snd-Book_1.ttf"); }
-@font-face { font-family: hasen-tunisia; src: url("../fonts/Hacen Tunisia.ttf"); }
-@font-face { font-family: nexa-bold; src: url("../fonts/NexaDemo-Bold.ttf"); }
-@font-face { font-family: nexa-light; src: url("../fonts/NexaDemo-Light.ttf"); }
-@font-face { font-family: acumin; src: url("../fonts/Acumin-RPro.otf"); }
-@font-face { font-family: Kaushan Script; src: url("../fonts/KaushanScript-Regular.otf"); }
+@font-face { font-family: ge-snd-book; src:url("GE-Snd-Book_1.ttf"); }
+@font-face { font-family: hasen-tunisia; src:url("Hacen Tunisia.ttf"); }
+@font-face { font-family: nexa-bold; src:url("NexaDemo-Bold.ttf"); }
+@font-face { font-family: nexa-light; src:url("NexaDemo-Light.ttf"); }
+@font-face { font-family: acumin; src:url("Acumin-RPro.otf"); }
+@font-face { font-family: Kaushan Script; src:url("KaushanScript-Regular.otf"); }
 /* Start Top Bar */
 .top-bar {
     background-color: #d2d3d5;
@@ -264,8 +264,8 @@ body {
 }
 .tours .text-block {
   position: absolute;
-  bottom: 83px;
-  right: 23px;
+  bottom: 80px;
+  right: 25px;
 }
 .tours .text-block h3 {
   color: #FFF;
@@ -283,14 +283,14 @@ body {
   height: 170px !important;
 }
 .tours .tour .text-block {
-  right: 50px;
+  right: 60px;
   bottom: 180px;
 }
 .tours .tour .button-blc {
   position: relative;
-  bottom: 98px;
+  bottom: 95px;
   text-align: left;
-  left: 83px;
+  left: 95px;
 }
 .tours .tour .button-blc .btn {
   background-color: #F1A804;

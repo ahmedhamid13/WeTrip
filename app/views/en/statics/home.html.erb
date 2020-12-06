@@ -40,12 +40,12 @@
 <!-- Start Tours -->
 <div class="tours text-center">
     <div class="container-fluid">
-    <div class="owl-carousel owl-theme owl-tours" style="direction: ltr;">
+    <div class="owl-carousel owl-theme owl-tours">
     <% @destinations.each do |destination| %>
         <%= link_to en_destination_path(destination) do %>
         <div class="item">
             <div class="hovereffect">
-                <%= (destination.image.attached?) ? image_tag(destination.image, class: 'img-fluid') : image_tag("dest/aldesah.webp", class: 'img-fluid ') %>
+                <%= (destination.image.attached?) ? image_tag(destination.image, class: 'img-fluid') : image_tag("img_no.gif", class: 'img-fluid ') %>
                 <div class="overlay">
                     <h2><%= destination.en_name %></h2>
                 </div>
@@ -62,26 +62,26 @@
     <div class="container">
     <div class="row">
 
-        <div class="col-md-6 info">
-        <h1>About Us</h1>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        <div class="col-md-6 mb-3 info">
+        <h1 class="hvr-float">About Us</h1>
+        <p class="border-top border-dark pt-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
         <div class="text-right">
             <%= link_to en_about_path do %>
                 <button class="btn">More</button>
             <% end %>
         </div>
         </div>
-        <div class="col-md-6">
-        <%= image_tag("hisma.webp", class: 'img-fluid' ) %>
-
+        <div class="col-md-6 mb-3">
+        <%= image_tag("harrat.webp", class: 'img-fluid rounded hvr-glow' ) %>
         </div>
+        <hr />
         <div class="col-md-6 d-none d-md-block">
-        <%= image_tag("hisma.webp", class: 'img-fluid' ) %>
+        <%= image_tag("hisma.webp", class: 'img-fluid rounded hvr-glow' ) %>
 
         </div>
         <div class="col-md-6 info">
-        <h1>Trips</h1>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        <h1 class="hvr-float">Trips</h1>
+        <p class="border-top border-dark pt-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
         <div class="text-right">
             <%= link_to en_images_path do %>
                 <button class="btn">More</button>
@@ -107,7 +107,7 @@
         <%= link_to en_trip_path(trip) do %>
             <div class="item">
             <div class="hovereffect">
-            <%= (trip.images.attached?) ? image_tag(trip.images[0], class: 'img-fluid ') : image_tag("dest/neom.webp", class: 'img-fluid ') %>
+            <%= (trip.images.attached?) ? image_tag(trip.images[0], class: 'img-fluid ') : image_tag("img_no.gif", class: 'img-fluid ') %>
             <div class="overlay">
                     <h2 class="font-arabic"><%= trip.en_name %></h2>
                     <p> <%= trip.adult_price %> R.S Per Person</p>
@@ -134,7 +134,7 @@
             <% if @posts.present? %>
             <% @posts.each do |post| %>
                 <div class="col-md-6 m-for-b">
-                    <%= (post.image.attached?) ? image_tag(post.image, class: 'img-fluid hvr-glow') : image_tag("dest/neom.webp", class: 'img-fluid hvr-glow') %>
+                    <%= (post.image.attached?) ? image_tag(post.image, class: 'img-fluid hvr-glow') : image_tag("img_no.gif", class: 'img-fluid hvr-glow') %>
                 </div>
 
                 <div class="col-md-6 m-for-b">
