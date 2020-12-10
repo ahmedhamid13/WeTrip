@@ -26,8 +26,16 @@ Rails.application.routes.draw do
     # resources :contacts, only: [:new, :create]
   end
 
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users
+  scope "(:locale)", locale: /ar/ do
+    mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+    devise_for :users
+    resource :dashboard do
+      collection do
+        get :report
+      end
+    end
+  end
 
   post 'en/trips/:id', to: 'book_trips#book_trip', as: 'en_book_trip'
   # post 'ar/trips/:id', to: 'book_trips#book_trip', as: 'ar_book_trip'

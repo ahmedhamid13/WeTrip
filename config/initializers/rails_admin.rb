@@ -5,6 +5,15 @@ RailsAdmin.config do |config|
   ## == Devise ==
   config.authenticate_with do
     warden.authenticate! scope: :user
+    default_locale =  :ar
+
+    # Set locale per request
+    I18n.locale = params[:locale] || default_locale
+
+    if current_user.blank? || (current_user.superadmin_role == false)
+        flash[:error] = 'You are not authorized to access this resource.'
+      redirect_to '/'
+    end
   end
   config.current_user_method(&:current_user)
 
@@ -27,7 +36,7 @@ RailsAdmin.config do |config|
     dashboard                     # mandatory
     index                         # mandatory
     new
-    export
+    # export
     bulk_delete
     show
     edit

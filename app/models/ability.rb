@@ -8,9 +8,10 @@ class Ability
     #
       user ||= User.new # guest user (not logged in)
       if user.superadmin_role?
-          can :manage, :all
+          can :manage, [BookTrip, Contact, Day, Destination, Offer, Post, Schedule, Trip, User]
           can :access, :rails_admin       # only allow admin users to access Rails Admin
           can :manage, :dashboard         # allow access to dashboard
+          cannot :manage, []
 
       else
         can :read, :all
