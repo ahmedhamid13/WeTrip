@@ -15,6 +15,8 @@
                 <% trip.images.each_with_index do |image, t2| %>
                   <li data-target="#carouselExampleIndicators" data-slide-to="<%= t1+t2+1 %>" <% if (t1+t2==0) %>class="active"<% end %>></li>
                 <% end %>
+              <% else %>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="<%= t1+1 %>" <% if (t1==0) %>class="active"<% end %>></li>
               <% end %>
             <% end %>
           </ol>
@@ -26,6 +28,10 @@
                     <%=image_tag(image, class: 'd-block img-fluid rounded') %>
                   </div>
                 <% end %>
+              <% else %>
+                <div class="carousel-item <% if (t1==0) %>active<% end %>">
+                  <%=image_tag("img_no.gif", class: 'd-block img-fluid rounded')%>
+                </div>
               <% end %>
             <% end %>
           </div>
@@ -48,7 +54,7 @@
 <div class="images text-center">
   <div class="container-fluid">
     <h2 class="h1">Trips</h2>
-    <div class="owl-carousel owl-theme owl-img" style="direction: ltr;">
+    <div class="owl-carousel owl-theme owl-img">
       <% @destination.trips.each do |trip| %>
         <%= link_to en_trip_path(trip) do %>
           <div class="item">

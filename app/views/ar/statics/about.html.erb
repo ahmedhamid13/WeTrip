@@ -1,13 +1,14 @@
 <!-- Start Header -->
+<% if @destinations.first.image.attached? %>
 <div class="header">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
+        <div class="carousel-inner" >
             <div class="carousel-item active slider"  style="background-image: url(<%= url_for(@destinations.first.image) %>)">
                 <div class="carousel-caption space">
-                        <h2><%= @destinations.first.name %></h2>
+                        <h2><%= @destinations.first.ar_name %></h2>
                 </div>
                         <div class="carousel-caption">
-                            <%= link_to @destinations.first, class: 'btn ' do %>Book Now<% end %>
+                            <%= link_to ar_destination_path(@destinations.first), class: 'btn ' do %>Book Now<% end %>
                         </div>
             </div>   
 
@@ -15,15 +16,15 @@
 
                 <div class="carousel-item slider"  style="background-image: url(<%= url_for(destination.image) %>)">
                     <div class="carousel-caption space">
-                            <h2><%= destination.name %></h2>
+                            <h2><%= destination.ar_name %></h2>
                     </div>
                             <div class="carousel-caption">
-                                <%= link_to destination, class: 'btn ' do %>Book Now<% end %>
+                                <%= link_to ar_destination_path(destination), class: 'btn ' do %>Book Now<% end %>
                             </div>
-                    </div>   
+                </div>   
             <% end %>
-         </div>
-         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        </div>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
@@ -33,6 +34,8 @@
         </a>
     </div>
 </div>
+<% end %>
+
 <!-- End Header -->
 <!-- Start About Us -->
     <div class="about">

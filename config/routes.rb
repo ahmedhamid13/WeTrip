@@ -37,9 +37,10 @@ Rails.application.routes.draw do
     end
   end
 
-  post 'en/trips/:id', to: 'book_trips#book_trip', as: 'en_book_trip'
   # post 'ar/trips/:id', to: 'book_trips#book_trip', as: 'ar_book_trip'
-
-  # resources :posts, only: [:index, :show]
+  
+  resources :posts, only: [:index, :show]
+  resources :reviews, only: [:index, :show, :new, :create]
+  post 'en/trips/:id', to: 'book_trips#book_trip', as: 'en_book_trip'
   root to: "en/statics#home", as: 'home'
 end
