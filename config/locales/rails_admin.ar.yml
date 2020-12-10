@@ -137,3 +137,5 @@ ar:
     distance_in_words:
       x_days: "شهور %{count}"
       about_x_hours: " ساعات %{count}"
+      x_minutes:  " دقائق %{count}"	
+
