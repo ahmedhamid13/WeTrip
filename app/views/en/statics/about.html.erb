@@ -13,16 +13,19 @@
             </div>   
 
             <% @destinations.drop(1).each do |destination| %>
+              <% if destination.image.attached? %>
 
-                <div class="carousel-item slider"  style="background-image: url(<%= url_for(destination.image) %>)">
-                    <div class="carousel-caption space">
-                            <h2><%= destination.en_name %></h2>
-                    </div>
-                            <div class="carousel-caption">
-                                <%= link_to en_destination_path(destination), class: 'btn ' do %>Book Now<% end %>
-                            </div>
-                </div>   
-            <% end %>
+              <div class="carousel-item slider"  style="background-image: url(<%= url_for(destination.image) %>)">
+                  <div class="carousel-caption space">
+                          <h2><%= destination.en_name %></h2>
+                  </div>
+                          <div class="carousel-caption">
+                              <%= link_to en_destination_path(destination), class: 'btn ' do %>Book Now<% end %>
+                          </div>
+              </div> 
+              <% end %>
+
+          <% end %>
         </div>
         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>

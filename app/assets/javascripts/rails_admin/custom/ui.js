@@ -1,8 +1,8 @@
 //= require_tree .
-$( "div" ).each(function() {
+// $( "div" ).each(function() {
     // $( this ).removeClass( "col-sm-offset-3 col-md-offset-2" );
-    alert("dsd")
-  });
+    // alert("dsd")
+//   });
 // $( ".col-sm-offset-3" ).removeClass( "col-sm-offset-3 col-md-offset-2" )
 // document.getAllElementsByClassName("col-sm-offset-3").classList.remove("col-sm-offset-3")
 // removeClass();
