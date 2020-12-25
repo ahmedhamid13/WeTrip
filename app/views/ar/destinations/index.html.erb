@@ -6,12 +6,12 @@
           <% @destinations.each do |destination| %>
             <div class="col-md-6 tour">
               <div class="item">
-              <%= (destination.image.attached?) ? image_tag(destination.image, class: 'img-fluid hvr-glow') : image_tag("img_no.gif", class: 'img-fluid hvr-glow') %>
+              <%= (destination.image.attached?) ? image_tag(destination.image, class: 'img-fluid hvr-glow') : image_tag("hisma.webp", class: 'img-fluid hvr-glow') %>
                 <div class="text-block">
-                  <h3><%= destination.ar_name %></h3>
+                  <h3><%= destination.en_name %></h3>
                 </div>
                 <div class="button-blc ml-3">
-                    <%= link_to ar_destination_path(destination), class: 'btn text-white hvr-bob' do %>More<% end %>
+                    <%= link_to en_destination_path(destination), class: 'btn text-white hvr-bob' do %>More<% end %>
                 </div>
               </div>
             </div>

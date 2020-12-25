@@ -129,6 +129,7 @@ ActiveRecord::Schema.define(version: 2020_12_05_195616) do
     t.float "adult_price"
     t.integer "currency", default: 0
     t.integer "available_places", default: 0
+    t.boolean "is_available", default: false
     t.bigint "destination_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

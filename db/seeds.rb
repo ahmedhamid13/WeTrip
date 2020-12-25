@@ -29,6 +29,7 @@ def create_destination_and_trips(destintion)
             leaving_time: Faker::Time.between(from: DateTime.now + 1, to: DateTime.now + 2),
             returning_time: Faker::Time.between(from: DateTime.now + 2, to: DateTime.now + 4),
             currency: rand(0..1),
+            is_available: Faker::Boolean.boolean(true_ratio: 0.68),
             child_price: rand(100.0..200.0).round(2),
             adult_price: rand(300.0..500.0).round(2),
             destination_id: dest.id

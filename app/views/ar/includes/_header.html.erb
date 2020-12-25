@@ -3,38 +3,52 @@
     <div class="container">
         <div class="row">
           <div class="col-md-4 bar-info mt-2" dir="ltr">
-            <i class="fas fa-shopping-cart f-co" data-toggle="modal" data-target="#cart"></i>
-            <!-- Modal -->
-            <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Shopping Cart</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body" dir="rtl">
-                    <div class="media">
-                        <div class="media-left">
-                            <a href="#">
-                                <img src="https://via.placeholder.com/80x80.png" class="img-fluid" alt="...">
-                            </a>
-                        </div>
+            <% if current_user %>
+              <i class="fas fa-shopping-cart f-co <% if @book_trips.present? %>text-success hvr-grow<% end %>" data-toggle="modal" data-target="#cart"></i><% if @book_trips.present? %> (<strong><%=  @book_trips.count %></strong>)<% end %>
+              <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
 
-                        <div class="media-body">
-                            <h5 class="media-heading">Lorem Ipsum</h5>
-                            <p>1 × 250.00 EGP</p>
-                        </div>
-                    </div> <!-- /Media-->
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-two"><a href="checkout.html">Checkout</a></button>
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Shopping Cart</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+
+                    <% @book_trips.each do |book_trip|%>
+                      <div class="modal-body" dir="rtl">
+                        <div class="media">
+                            <div class="media-left">
+                              <%= link_to en_trip_path(book_trip.trip) do %>
+                                <% if book_trip.trip.images.attached?%>
+                                    <div class="carousel-item <% if (t==0) %>active<% end %>">
+                                      <%=image_tag(book_trip.trip.images.sample, class: 'd-block img-fluid rounded', :size => "140x100", :crop => :fill) %>
+                                    </div>
+                                <% else %>
+                                  <div class="carousel-item active">
+                                    <%=image_tag("aldesah.webp", class: 'd-block img-fluid rounded', :size => "140x100", :crop => :fill)%>
+                                  </div>
+                                <% end %>
+                              <% end %>
+                            </div>
+
+                            <div class="media-body">
+                                <h5 class="media-heading"><%= book_trip.trip.ar_name %></h5>
+                                <p><%= book_trip.total_price %></p>
+                            </div>
+                        </div> <!-- /Media-->
+                      </div>
+                      <hr>
+                    <% end %>
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-two"><a href="checkout.html">Checkout</a></button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-
+            <% end %>
             <i class="fas fa-envelope f-co"></i> <span class="w-email">info@weekendtripss.com</span>
           </div>
           <div class="col-md-4 mt-1 d-none d-md-block">

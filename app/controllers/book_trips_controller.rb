@@ -1,7 +1,7 @@
 class BookTripsController < ApplicationController
   before_action :set_book_trip, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:book_trip, :index, :show]
-  before_action :set_trip, :authenticate_user!, only: [:book_trip]
+  before_action :set_trip, :authenticate_user!, only: [:book_trip_en]
 
   
   # GET /book_trips
@@ -42,7 +42,7 @@ class BookTripsController < ApplicationController
 
   # POST /**/trip/:id
   # POST /**/trip/:id
-  def book_trip
+  def book_trip_en
     @book_trip = BookTrip.new(book_trip_params)
 
     @book_trip.total_price = (book_trip_params[:adults].to_i*@trip.adult_price) + (book_trip_params[:children].to_i*@trip.child_price)

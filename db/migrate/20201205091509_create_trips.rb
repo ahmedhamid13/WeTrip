@@ -13,6 +13,7 @@ class CreateTrips < ActiveRecord::Migration[6.0]
       t.float :adult_price
       t.integer :currency, default: 0
       t.integer :available_places, default: 0
+      t.boolean :is_available, default: false
       t.references :destination, null: false, foreign_key: true
 
       t.timestamps

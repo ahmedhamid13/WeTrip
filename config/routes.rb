@@ -14,16 +14,16 @@ Rails.application.routes.draw do
   end
 
   namespace :ar do
-    # resources :destinations, only: [:index, :show]
-    # resources :trips, only: [:index, :show]
-    # resources :days, only: [:index, :show]
-    # resources :schedules, only: [:index, :show]
-    # resources :offers, only: [:index, :show]
+    resources :destinations, only: [:index, :show]
+    resources :trips, only: [:index, :show]
+    resources :days, only: [:index, :show]
+    resources :schedules, only: [:index, :show]
+    resources :offers, only: [:index, :show]
 
-    # root to: 'statics#home', as: 'home'
-    # get 'images', to: 'statics#images', as: 'images'
-    # get 'about', to: 'statics#about', as: 'about'
-    # resources :contacts, only: [:new, :create]
+    root to: 'statics#home', as: 'home'
+    get 'images', to: 'statics#images', as: 'images'
+    get 'about', to: 'statics#about', as: 'about'
+    resources :contacts, only: [:new, :create]
   end
 
   scope "(:locale)", locale: /ar/ do
@@ -41,6 +41,6 @@ Rails.application.routes.draw do
   
   resources :posts, only: [:index, :show]
   resources :reviews, only: [:index, :show, :new, :create]
-  post 'en/trips/:id', to: 'book_trips#book_trip', as: 'en_book_trip'
+  post 'en/trips/:id', to: 'book_trips#book_trip_en', as: 'en_book_trip'
   root to: "en/statics#home", as: 'home'
 end
