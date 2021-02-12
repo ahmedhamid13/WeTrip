@@ -2,7 +2,7 @@
 <div class="top-bar text-center" id="top">
     <div class="container">
         <div class="row">
-          <div class="col-md-4 bar-info mt-2" dir="ltr">
+          <div class="col-md-4 bar-info mt-2" dir="tr">
             <% if current_user %>
               <i class="fas fa-shopping-cart f-co <% if @book_trips.present? %>text-success hvr-grow<% end %>" data-toggle="modal" data-target="#cart"></i><% if @book_trips.present? %> (<strong><%=  @book_trips.count %></strong>)<% end %>
               <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -10,7 +10,7 @@
                   <div class="modal-content">
 
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Shopping Cart</h5>
+                      <h5 class="modal-title" id="exampleModalLabel"><%= t('header.cart') %></h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -43,7 +43,7 @@
                     <% end %>
 
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-two"><a href="checkout.html">Checkout</a></button>
+                      <button type="button" class="btn btn-two"><a href="checkout.html"><%= t('header.checkout') %></a></button>
                     </div>
                   </div>
                 </div>
@@ -61,7 +61,7 @@
               </div>
             </form>
           </div>
-          <div class="col-md-4 bar-info" dir="ltr">
+          <div class="col-md-4 bar-info" dir="tr">
             <select class="selectpicker" onchange="location = this.value;" data-width="fit" data-title="Lang">
               <option value="../ar/index.html">عربي</option>
               <option value="index.html">English</option>
@@ -104,41 +104,41 @@
      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto" id="navbar-nav-id">
           <li class="nav-item hvr-float" id="home">
-              <%= link_to 'Home', ar_home_path, class: 'nav-link' %>
+              <%= link_to t('header.home'), ar_home_path, class: 'nav-link' %>
           </li>
           <li class="nav-item hvr-float" id="destinations">
-              <%= link_to 'Destinations', ar_destinations_path, class: 'nav-link' %>
+              <%= link_to t('header.destinations'), ar_destinations_path, class: 'nav-link' %>
           </li>
           <li class="nav-item hvr-float" id="images">
-              <%= link_to 'Images', ar_images_path, class: 'nav-link' %>
+              <%= link_to t('header.images'), ar_images_path, class: 'nav-link' %>
           </li>
           <li class="nav-item hvr-float" id="contacts">
-              <%= link_to 'Contact us', new_ar_contact_path, class: 'nav-link' %>
+              <%= link_to t('header.contact_us'), new_ar_contact_path, class: 'nav-link' %>
           </li>
           <li class="nav-item hvr-float" id="about">
-              <%= link_to 'About us', ar_about_path, class: 'nav-link' %>
+              <%= link_to t('header.about_us'), ar_about_path, class: 'nav-link' %>
           </li>
           <% if !current_user %>
 
           <li class="nav-item hvr-float" id="register">
               <%= link_to new_user_registration_path ,  class: 'nav-link bg-warning' do %>
-                Register
+                <%= t('header.register') %>
             <%end%>
           </li>
           <li class="nav-item hvr-float" id="login">
           <%= link_to new_user_session_path ,  class: 'nav-link bg-success' do %>
-                    Login
+                <%= t('header.login') %>
                 <%end%>
             </li>
           <%else%>
           <% if current_user.superadmin_role?%>
             <li class="nav-item hvr-float" id="admin">
-              <a class="nav-link bg-success" href="/admin">Dashboard</a>
+              <a class="nav-link bg-success" href="/admin"><%= t('header.dashboard') %></a>
             </li>
           <% end %>
           <li class='nav-item '>
             <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link bg-danger ' do %>
-                Sign Out
+                <%= t('header.logout') %>
             <%end%>
             </li>
             <%end%>

@@ -30,4 +30,38 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  destinations: "Destinations"
+  trips: "Trips"
+  header:
+    home: Home
+    destinations: "Destinations"
+    images: "Images"
+    contact_us: "Contact us"
+    about_us: "About us"
+    register: "Register"
+    login: "Login"
+    logout: "Logout"
+    dashboard: "Dashboard"
+    checkout: "Delete"
+    cart: "Cart"
+  static:
+    book_now: "Book Now"
+    about_us: "About Us Week end Trips"
+    about_paragraph: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    diverse_destination: "Diverse Destainations"
+    diverse_destination_paragraph: "Explore the perfect combination of sea and mountains, where you can swim in the sea and hike the mountains in the same day."
+    value_money: "Value For Money"
+    value_money_paragraph: "Because quality does not mean expensive! we offer best prices for your best experience."
+    fast_booking: "Fast Booking"
+    fast_booking_paragraph: "Don't worry about how to book your trip. You don't need to make complicated steps to book your trip with us."
+    support_team: "Support Team"
+    support_team_paragraph: "Our team is handling all the details before, During and after your tour."
+  contact:
+    name_placeholder: "Name"
+    email_placeholder: "Email Address"
+    phone_placeholder: "Phone Number"
+    request_placeholder: "Your Request"
+    submit_btn: "Send"
+    contact_us: "Be In Touch With Us"
+    contact_data: "Contact Data"
+    contact_pharagragh: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."

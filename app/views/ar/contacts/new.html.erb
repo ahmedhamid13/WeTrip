@@ -2,15 +2,14 @@
 <div class="contact co-us">
   <div class="container">
     <div class="row">
-
       <div class="col-md-6 info contact-us">
-        <h2>Be In Touch With Us</h2>
+        <h2><%= t('contact.contact_us') %></h2>
         <%= render 'form', contact: @contact %>
       </div>
 
       <div class="col-md-6 info contact-us">
-        <h3>Contact Data</h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        <h3><%= t('contact.contact_data') %></h3>
+        <p><%= t('contact.contact_pharagragh') %></p>
         <div class="co-info">
           <i class="fas fa-map-marker-alt"></i> <span>Ummluj, Alsalam St, 48311</span>
           <div class="d-block"></div>

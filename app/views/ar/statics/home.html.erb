@@ -8,7 +8,7 @@
                         <h2><%= @destinations.first.ar_name %></h2>
                 </div>
                         <div class="carousel-caption">
-                            <%= link_to ar_destination_path(@destinations.first), class: 'btn ' do %>Book Now<% end %>
+                            <%= link_to ar_destination_path(@destinations.first), class: 'btn ' do %>إحجز الآن<% end %>
                         </div>
             </div>   
 
@@ -19,7 +19,7 @@
                             <h2><%= destination.ar_name %></h2>
                     </div>
                             <div class="carousel-caption">
-                                <%= link_to ar_destination_path(destination), class: 'btn ' do %>Book Now<% end %>
+                                <%= link_to ar_destination_path(destination), class: 'btn ' do %>إحجز الآن<% end %>
                             </div>
                 </div>   
             <% end %>
@@ -63,11 +63,11 @@
     <div class="row">
 
         <div class="col-md-6 mb-3 info">
-        <h1 class="hvr-float">About Us</h1>
-        <p class="border-top border-dark pt-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        <h1 class="hvr-float">من نحن</h1>
+        <p class="border-top border-dark pt-4">من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن من نحن</p>
         <div class="text-right">
             <%= link_to ar_about_path do %>
-                <button class="btn">More</button>
+                <button class="btn">المزيد</button>
             <% end %>
         </div>
         </div>
@@ -80,11 +80,11 @@
 
         </div>
         <div class="col-md-6 info">
-        <h1 class="hvr-float">Trips</h1>
-        <p class="border-top border-dark pt-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        <h1 class="hvr-float">الرحلات</h1>
+        <p class="border-top border-dark pt-4">الرحلات الرحلات الرحلات الرحلات الرحلات الرحلات الرحلات الرحلات الرحلات</p>
         <div class="text-right">
             <%= link_to ar_images_path do %>
-                <button class="btn">More</button>
+                <button class="btn">المزيد</button>
             <% end %>
         </div>
         </div>
@@ -100,7 +100,7 @@
 <!-- Start Images -->
 <div class="images text-center">
     <div class="container-fluid">
-    <h2 class="h1">Trips</h2>
+    <h2 class="h1">الرحلات</h2>
     <div class="owl-carousel owl-theme owl-img">
     <% @trips.each do |trip| %>
 
@@ -110,7 +110,7 @@
             <%= (trip.images.attached?) ? image_tag(trip.images[0], class: 'img-fluid ') : image_tag("img_no.gif", class: 'img-fluid ') %>
             <div class="overlay">
                     <h2 class="font-arabic"><%= trip.ar_name %></h2>
-                    <p> <%= trip.adult_price %> R.S Per Person</p>
+                    <p>السعر <%= trip.adult_price %> ر.س للفرد</p>
                 </div>
             </div>
         </div>
@@ -125,11 +125,11 @@
     <div class="container">
     <div class="row">
         <div class="col-md-6 contact-us info">
-        <h2>Contact Us</h2>
-        <%= render "en/contacts/form", contact: @contact %>
+        <h2>تواصل معنا</h2>
+        <%= render "ar/contacts/form", contact: @contact %>
         </div>
         <div class="col-md-6 info">
-        <h2>Blog</h2>
+        <h2>أخبارنا</h2>
         <div class="row">
             <% if @posts.present? %>
             <% @posts.each do |post| %>

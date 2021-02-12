@@ -1,7 +1,7 @@
 <!-- Start Tours -->
 <% if @destinations.present? %>
     <div class="tours text-center" style="padding-top: 50px">
-        <h2 class="h1">Destinations</h2>
+        <h2 class="h1"><%= t('destinations') %></h2>
         <div class="container-fluid">
             <div class="owl-carousel owl-theme owl-tours">
                 <% @destinations.each do |destination| %>
@@ -25,7 +25,7 @@
 <% if @trips.present? %>
     <div class="images text-center">
       <div class="container-fluid">
-        <h2 class="h1">Trips</h2>
+        <h2 class="h1"><%= t('trips') %></h2>
         <div class="owl-carousel owl-theme owl-img">
             <% @trips.each do |trip| %>
                 <%= link_to en_trip_path(trip) do %>

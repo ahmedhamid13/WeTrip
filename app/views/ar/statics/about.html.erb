@@ -8,7 +8,7 @@
                         <h2><%= @destinations.first.ar_name %></h2>
                 </div>
                         <div class="carousel-caption">
-                            <%= link_to ar_destination_path(@destinations.first), class: 'btn ' do %>Book Now<% end %>
+                            <%= link_to ar_destination_path(@destinations.first), class: 'btn ' do %><%= t('static.book_now') %><% end %>
                         </div>
             </div>   
 
@@ -19,7 +19,7 @@
                             <h2><%= destination.ar_name %></h2>
                     </div>
                             <div class="carousel-caption">
-                                <%= link_to ar_destination_path(destination), class: 'btn ' do %>Book Now<% end %>
+                                <%= link_to ar_destination_path(destination), class: 'btn ' do %><%= t('static.book_now') %><% end %>
                             </div>
                 </div>   
             <% end %>
@@ -43,30 +43,29 @@
         <div class="row">
 
           <div class="col-md-12 info">
-            <h1>About Us Week end Trips</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <h1><%= t('static.about_us') %></h1>
+            <p><%= t('static.about_paragraph') %></p>
+            <p><%= t('static.about_paragraph') %></p>
           </div>
           <div class="col-lg-3 col-md-6 info text-center features">
             <span class="d-block"><i class="fas fa-globe"></i></span>
-            <h4>Diverse Destainations</h4>
-            <p>Explore the perfect combination of sea and mountains, where you can swim in the sea and hike the mountains in the same day.</p>
+            <h4><%= t('static.diverse_destination') %></h4>
+            <p><%= t('static.diverse_destination_paragraph') %></p>
           </div>
           <div class="col-lg-3 col-md-6 info text-center features">
             <span class="d-block"><i class="fas fa-money-bill-wave"></i></span>
-            <h4>Value For Money</h4>
-            <p>Because quality does not mean expensive! we offer best prices for your best experience.</p>
+            <h4><%= t('static.value_money') %></h4>
+            <p><%= t('static.value_money_paragraph') %></p>
           </div>
           <div class="col-lg-3 col-md-6 info text-center features">
             <span class="d-block"><i class="fas fa-calendar-week"></i></span>
-            <h4>Fast Booking</h4>
-            <p>Don't worry about how to book your trip. You don't need to make complicated steps to book your trip with us.</p>
+            <h4><%= t('static.fast_booking') %></h4>
+            <p><%= t('static.fast_booking_paragraph') %></p>
           </div>
           <div class="col-lg-3 col-md-6 info text-center features">
             <span class="d-block"><i class="fas fa-comments"></i></span>
-            <h4>Support Team</h4>
-            <p>Our team is handling all the details before, During and after your tour.</p>
-          </div>
+            <h4><%= t('static.support_team') %></h4>
+            <p><%= t('static.support_team_paragraph') %></p>
 
         </div> <!--/Row -->
       </div> <!-- /Container -->

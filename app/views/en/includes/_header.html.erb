@@ -11,7 +11,7 @@
                   <div class="modal-content">
 
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Shopping Cart</h5>
+                      <h5 class="modal-title" id="exampleModalLabel"><%= t('header.checkout') %></h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -44,7 +44,7 @@
                     <% end %>
 
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-two"><a href="checkout.html">Checkout</a></button>
+                      <button type="button" class="btn btn-two"><a href="checkout.html"><%= t('header.checkout') %></a></button>
                     </div>
                   </div>
                 </div>
@@ -105,44 +105,44 @@
      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto" id="navbar-nav-id">
           <li class="nav-item hvr-float" id="home">
-              <%= link_to 'Home', en_home_path, class: 'nav-link' %>
+              <%= link_to t('header.home'), en_home_path, class: 'nav-link' %>
           </li>
           <li class="nav-item hvr-float" id="destinations">
-              <%= link_to 'Destinations', en_destinations_path, class: 'nav-link' %>
+              <%= link_to t('header.destinations'), en_destinations_path, class: 'nav-link' %>
           </li>
           <li class="nav-item hvr-float" id="images">
-              <%= link_to 'Images', en_images_path, class: 'nav-link' %>
+              <%= link_to t('header.images'), en_images_path, class: 'nav-link' %>
           </li>
           <li class="nav-item hvr-float" id="contacts">
-              <%= link_to 'Contact us', new_en_contact_path, class: 'nav-link' %>
+              <%= link_to t('header.contact_us'), new_en_contact_path, class: 'nav-link' %>
           </li>
           <li class="nav-item hvr-float" id="about">
-              <%= link_to 'About us', en_about_path, class: 'nav-link' %>
+              <%= link_to t('header.about_us'), en_about_path, class: 'nav-link' %>
           </li>
           <% if !current_user %>
 
           <li class="nav-item hvr-float" id="register">
               <%= link_to new_user_registration_path ,  class: 'nav-link bg-warning' do %>
-                Register
+                <%= t('header.register') %>
             <%end%>
           </li>
           <li class="nav-item hvr-float" id="login">
           <%= link_to new_user_session_path ,  class: 'nav-link bg-success' do %>
-                    Login
+                <%= t('header.login') %>
                 <%end%>
             </li>
           <%else%>
           <% if current_user.superadmin_role?%>
             <li class="nav-item hvr-float" id="admin">
-              <a class="nav-link bg-success" href="/admin">Dashboard</a>
+              <a class="nav-link bg-success" href="/admin"><%= t('header.dashboard') %></a>
             </li>
           <% end %>
           <li class='nav-item '>
             <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link bg-danger ' do %>
-                Sign Out
+                <%= t('header.logout') %>
             <%end%>
             </li>
-            <%end%>
+          <%end%>
       </ul>
     </div>
 </nav>
