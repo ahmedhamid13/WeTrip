@@ -7,7 +7,7 @@ function count(){
     let children_count = document.getElementById("book_trip_children").value;
     let total_count = document.getElementById("total_count");
 
-    total_count.innerHTML = `total ${adults_count*adult_price + children_count*child_price}`
+    total_count.innerHTML = `Total cost ${adults_count*adult_price + children_count*child_price}`
 }
 
 form.addEventListener('change', function() {

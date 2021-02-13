@@ -8,16 +8,16 @@
               <div class="item">
               <%= (destination.image.attached?) ? image_tag(destination.image, class: 'img-fluid hvr-glow') : image_tag("hisma.webp", class: 'img-fluid hvr-glow') %>
                 <div class="text-block">
-                  <h3><%= destination.en_name %></h3>
+                  <h3><%= destination.ar_name %></h3>
                 </div>
                 <div class="button-blc ml-3">
-                    <%= link_to en_destination_path(destination), class: 'btn text-white hvr-bob' do %>More<% end %>
+                    <%= link_to ar_destination_path(destination), class: 'btn text-white hvr-bob' do %><%= t('destination.more') %><% end %>
                 </div>
               </div>
             </div>
           <% end %>
         <% else %>
-          <h5 class="text-center border m-auto">No destinations Found</h5>
+          <h5 class="text-center border m-auto"><%= t('destination.no_destinations') %></h5>
         <% end %>
     </div> <!-- /Row -->
   </div> <!-- /Container -->

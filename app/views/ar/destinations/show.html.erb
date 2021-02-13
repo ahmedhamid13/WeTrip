@@ -3,8 +3,8 @@
     <div class="row">
 
       <div class="col-md-6 info">
-        <h2><%= @destination.en_name %></h2>
-        <p><%= @destination.en_description %></p>
+        <h2><%= @destination.ar_name %></h2>
+        <p><%= @destination.ar_description %></p>
       </div>
 
       <div class="col-md-6 info">
@@ -53,16 +53,16 @@
 <!-- Start Images -->
 <div class="images text-center">
   <div class="container-fluid">
-    <h2 class="h1">Trips</h2>
+    <h2 class="h1"><%= t('trips') %></h2>
     <div class="owl-carousel owl-theme owl-img">
       <% @destination.trips.each do |trip| %>
-        <%= link_to en_trip_path(trip) do %>
+        <%= link_to ar_trip_path(trip) do %>
           <div class="item">
           <div class="hovereffect">
                 <%= (trip.images.attached?) ? image_tag(trip.images[0], class: 'img-fluid hvr-glow') : image_tag("neom.webp", class: 'img-fluid hvr-glow') %>
                 <div class="overlay">
-                    <h2 class="font-arabic"><%= trip.en_name %></h2>
-                    <p><%= trip.adult_price %></p>
+                    <h2 class="font-arabic"><%= trip.ar_name %></h2>
+                    <p>السعر <%= trip.adult_price %> ر.س للفرد</p>
                 </div>
             </div>
           </div>

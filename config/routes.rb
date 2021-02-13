@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   namespace :en do
     resources :destinations, only: [:index, :show]
-    resources :trips, only: [:index, :show]
+    resources :trips, only: [:show]
     resources :days, only: [:index, :show]
     resources :schedules, only: [:index, :show]
     resources :offers, only: [:index, :show]
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   namespace :ar do
     resources :destinations, only: [:index, :show]
-    resources :trips, only: [:index, :show]
+    resources :trips, only: [:show]
     resources :days, only: [:index, :show]
     resources :schedules, only: [:index, :show]
     resources :offers, only: [:index, :show]

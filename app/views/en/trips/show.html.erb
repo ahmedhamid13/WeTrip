@@ -5,9 +5,9 @@
           <div class="col-md-8 info text-left">
             <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active rounded shadow hvr-grow" id="nav-trip-tab" data-toggle="tab" href="#nav-trip" role="tab" aria-controls="nav-trip" aria-selected="true">About Trip</a>
-                <a class="nav-item nav-link  rounded shadow hvr-grow" id="nav-info-tab" data-toggle="tab" href="#nav-info" role="tab" aria-controls="nav-info" aria-selected="false">Details</a>
-                <a class="nav-item nav-link  rounded shadow hvr-grow" id="nav-review-tab" data-toggle="tab" href="#nav-review" role="tab" aria-controls="nav-review" aria-selected="false">Reviews</a>
+                <a class="nav-item nav-link active rounded shadow hvr-grow" id="nav-trip-tab" data-toggle="tab" href="#nav-trip" role="tab" aria-controls="nav-trip" aria-selected="true"><%= t('trip.about_trip') %></a>
+                <a class="nav-item nav-link  rounded shadow hvr-grow" id="nav-info-tab" data-toggle="tab" href="#nav-info" role="tab" aria-controls="nav-info" aria-selected="false"><%= t('trip.details') %></a>
+                <a class="nav-item nav-link  rounded shadow hvr-grow" id="nav-review-tab" data-toggle="tab" href="#nav-review" role="tab" aria-controls="nav-review" aria-selected="false"><%= t('trip.reviews') %></a>
               </div>
             </nav>
             
@@ -49,20 +49,20 @@
                   </a>
                 </div>
                 <div class="information">
-                  <h3>Main Information</h3>
+                  <h3><%= t('trip.main_information') %></h3>
                   <span><%= @trip.adult_price %></span>
                   <table class="table">
-                    <tbody>
+                     <tbody>
                       <tr>
-                        <td class="main">Leaving Place</td>
-                        <td><%= @trip.en_leaving_place %></td>
+                        <td class="main"><%= t('trip.leaving_place') %></td>
+                        <td><%= @trip.ar_leaving_place %></td>
                       </tr>
                       <tr>
-                        <td class="main">Leaving at</td>
+                        <td class="main"><%= t('trip.leaving_at') %></td>
                         <td><%= @trip.leaving_time %></td>
                       </tr>
                       <tr>
-                        <td class="main">Returning at</td>
+                        <td class="main"><%= t('trip.returning_at') %></td>
                         <td><%= @trip.returning_time %></td>
                       </tr>
                     </tbody>
@@ -73,7 +73,7 @@
               <!-- Start Nav Info Tab -->
               <div class="tab-pane fade" id="nav-info" role="tabpanel" aria-labelledby="nav-info-tab">
                 <div class="info info-detail">
-                  <h3>We Offer</h3>
+                  <h3><%= t('trip.we_offer') %></h3>
                   <% @trip.offers.each do |offer| %>
                     <% if offer.is_available %>
                       <i class="fas fa-check text-success"></i> <span><%= offer.en_name %></span>
@@ -82,7 +82,7 @@
                   <% end %>
                 </div>
                 <div class="info info-detail times">
-                  <h3>We Don't Offer</h3>
+                  <h3><%= t('trip.not_offer') %></h3>
                   <% @trip.offers.each do |offer| %>
                     <% unless offer.is_available %>
                       <i class="fas fa-times text-danger"></i> <span><%= offer.en_name %></span>
@@ -95,7 +95,7 @@
                   <ul class="timeline">
                     <% @trip.days.each do |day| %>
                       <li>
-                        <h4 href="#!">Day <%= day.number %></h4>
+                        <h4 href="#!"><%= t('trip.day') %> <%= day.number %></h4>
                         <% day.schedules.each do |schedule| %>
                           <p><%= schedule.time %> <%= schedule.en_name %></p>
                         <% end %>
@@ -107,7 +107,7 @@
               </div>
               <!-- End Nav Info Tab -->
               <div class="tab-pane fade p-4" id="nav-review" role="tabpanel" aria-labelledby="nav-review-tab">
-                <h2 class="mb-4">Reviews {<%= @trip.reviews.count %>}</h2>
+                <h2 class="mb-4"><%= t('trip.reviews') %> {<%= @trip.reviews.count %>}</h2>
                 <% @trip.reviews.each do |review| %>
                   <div class="border rounded shadow p-1 mb-3">
                     <p class="mb-3 text-dark"><%= review.comment %></p>    
@@ -120,7 +120,7 @@
           </div>
           <div class="col-md-4 info booking border-left p-1">
             <div class="information">
-              <h3>Book Here</h3>
+              <h3><%= t('trip.book_here') %></h3>
               <%= form_with(model: @book_trip, url: "/en/trips/#{@trip.id}", local: true, id: "new_book") do |form| %>
                 <% if @book_trip.errors.any? %>
                   <div class="alert alert-danger alert-dismissible">
@@ -132,12 +132,12 @@
                 <% end %>
 
                 <div class="form-group">
-                  <%= form.label(:adults, "Number of Adult (#{@trip.adult_price})" )%>
+                  <%= form.label(:adults, "#{t('trip.number_of_adults')} (#{@trip.adult_price} R.S Per Person)" )%>
                   <%= form.number_field :adults, in: 1..@trip.available_places, value: 0, class: 'form-control' %>
                 </div>
 
                 <div class="form-group">
-                  <%= form.label(:children, "Number of Children (#{@trip.child_price})") %>
+                  <%= form.label(:children, "#{t('trip.number_of_children')} (#{@trip.child_price} R.S Per Person)") %>
                   <%= form.number_field :children, in: 1..@trip.available_places, value: 0, class: 'form-control' %>
                 </div>
 
@@ -146,10 +146,10 @@
                 <%= form.hidden_field :trip_id, value: @trip.id %>
 
                 <div class="form-group">
-                  <%= form.submit "Book trip",class: 'btn text-center' %>
+                  <%= form.submit t('trip.book_trip'), class: 'btn text-center' %>
                 </div>
                 <hr>
-                <span class="text-center" id="total_count">Total 0.0</span>
+                <span class="text-center" id="total_count">Total cost 0.0</span>
               <% end %>
             </div>
           </div>
@@ -160,5 +160,5 @@
     <!-- End Trip -->
 
 <% content_for :javascript_includes do %>
-    <%= javascript_pack_tag 'trips', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'en_trips', 'data-turbolinks-track': 'reload' %>
 <% end %>

@@ -34,3 +34,21 @@ ar:
     contact_us: 'كن على تواصل معنا'
     contact_data: 'بيانات الاتصال'
     contact_pharagragh: 'إذا كانت لديك قصة لمشاركتها أو سؤال لم تتم الإجابة عليه على موقعنا ، يرجى الاتصال بنا عبر تفاصيل الاتصال المدرجة أدناه أو ملء النموذج على اليمين.'
+  destination:
+    no_destinations: 'لا توجد واجهات'
+    more: 'المزيد'
+  trip:
+    about_trip: "عن الرحلة"
+    details: "التفاصيل"
+    reviews: "أراء العملاء"
+    main_information: "المعلومات الأساسية"
+    leaving_place: "موقع المغادرة/ العودة	"
+    leaving_at: "توقيت المغادرة"
+    returning_at: "توقيت العودة"
+    we_offer: "توفر لك"
+    not_offer: "لا توفر لك"
+    day: "اليوم"
+    book_here: "احجز هنا"
+    number_of_adults: "عدد البالغين"
+    number_of_children: "عدد الاطفال"
+    book_trip: "احجز الرحلة"

@@ -1,7 +1,7 @@
 class BookTripsController < ApplicationController
   before_action :set_book_trip, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:book_trip, :index, :show]
-  before_action :set_trip, :authenticate_user!, only: [:book_trip_en]
+  before_action :set_trip, :authenticate_user!, only: [:book_trip_en, :book_trip_ar]
 
   
   # GET /book_trips
@@ -56,6 +56,28 @@ class BookTripsController < ApplicationController
         format.json { render :show, status: :created, location: @book_trip }
       else
         format.html { render 'en/trips/show' }
+        format.json { render json: @book_trip.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+    # POST /**/trip/:id
+  # POST /**/trip/:id
+  def book_trip_ar
+    @book_trip = BookTrip.new(book_trip_params)
+
+    @book_trip.total_price = (book_trip_params[:adults].to_i*@trip.adult_price) + (book_trip_params[:children].to_i*@trip.child_price)
+    return redirect_to request.referer unless @book_trip.total_price > 0
+
+    @book_trip.user_id = current_user.id
+    
+    respond_to do |format|
+      if @book_trip.save
+        format.html { redirect_to request.referer, notice: 'Book trip was successfully created.' }
+        format.json { render :show, status: :created, location: @book_trip }
+      else
+        format.html { render 'ar/trips/show' }
         format.json { render json: @book_trip.errors, status: :unprocessable_entity }
       end
     end
