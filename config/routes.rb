@@ -29,13 +29,45 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /ar/ do
     mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-    devise_for :users
+    devise_for :user, :path => 'ar', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }, as: 'arabic_devise'
+    devise_for :user, :path => 'en', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }, as: 'english_devise'
     resource :dashboard do
       collection do
         get :report
       end
     end
   end
+
+
+  # devise_for :user, controllers: {
+  #       sessions: 'patients/sessions',
+  #       registrations: 'patients/registrations'
+  #     }
+
+  # devise_scope :patient do
+  #   authenticated  do
+  #     root to: 'dashboard#patient', as: 'authenticated_patient_root'
+  #   end
+
+  #   unauthenticated do
+  #     root to: 'shared#home', as: 'unauthenticated_patient_root'
+  #   end
+  # end
+
+  # devise_for :patients, controllers: {
+  #       sessions: 'patients/sessions',
+  #       registrations: 'patients/registrations'
+  #     }
+
+  # devise_scope :patient do
+  #   authenticated  do
+  #     root to: 'dashboard#patient', as: 'authenticated_patient_root'
+  #   end
+
+  #   unauthenticated do
+  #     root to: 'shared#home', as: 'unauthenticated_patient_root'
+  #   end
+  # end
 
   # post 'ar/trips/:id', to: 'book_trips#book_trip', as: 'ar_book_trip'
   

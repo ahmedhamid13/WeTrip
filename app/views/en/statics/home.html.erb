@@ -1,5 +1,5 @@
 <!-- Start Header -->
-<% if @destinations.first.image.attached? %>
+<% if @destinations.first && @destinations.first.image.attached? %>
 <div class="header">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner" >

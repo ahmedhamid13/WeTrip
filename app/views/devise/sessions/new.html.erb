@@ -1,5 +1,38 @@
 
-  <div class="register">
+<% if request.path_info.include?('ar') %>
+<div class="register">
+    <div class="container">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+      <div class="row justify-content-center">
+      <div class="col-6 rouned shadow p-2 signUp">
+        <form>
+            <h2 class="text-center">تسجيل دخول</h2>
+            <div class="form-group">
+              <label class="d-block">البريد الالكتروني</label>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" ,:class=> 'form-control', :placeholder => 'Email' %>
+            </div>
+            <div class="form-group">
+              <label class="d-block">كلمة السر:</label>
+              <%= f.password_field :password, autocomplete: "current-password" ,:class=>'form-control' , :placeholder => '********' %>           
+              </div>
+              <% if devise_mapping.rememberable? %>
+              <div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label :تذكرني %>
+            </div>
+            <% end %>
+            <div class="form-group text-center">
+              <%= f.submit "دخول" ,:class=>'btn'%>
+            </div>
+            <% end %>
+        </form>
+      </div>
+      </div>  
+    </div> <!-- /Container -->
+  </div> <!-- /Register -->
+<% else %>
+<div class="register">
     <div class="container">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
@@ -31,3 +64,5 @@
       </div>  
     </div> <!-- /Container -->
   </div> <!-- /Register -->
+<% end %>
+  
