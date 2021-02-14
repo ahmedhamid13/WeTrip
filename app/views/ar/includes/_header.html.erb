@@ -126,13 +126,14 @@
           <% if !current_user %>
 
           <li class="nav-item hvr-float" id="register">
-              <%= link_to new_arabic_devise_user_registration_path ,  class: 'nav-link bg-warning' do %>
+              <%= link_to new_user_registration_path ,  class: 'nav-link bg-warning' do %>
                 <%= t('header.register') %>
             <%end%>
           </li>
           <li class="nav-item hvr-float" id="login">
-          <%= link_to new_arabic_devise_user_session_path ,  class: 'nav-link bg-success' do %>
-                <%= t('header.login') %>
+          <%= link_to new_user_session_path ,  class: 'nav-link bg-success' do %>
+  
+            <%= t('header.login') %>
                 <%end%>
             </li>
           <%else%>
@@ -142,8 +143,9 @@
             </li>
           <% end %>
           <li class='nav-item '>
-            <%= link_to destroy_arabic_devise_user_session_path, method: :delete, class: 'nav-link bg-danger ' do %>
-                <%= t('header.logout') %>
+            <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link bg-danger ' do %>
+  
+              <%= t('header.logout') %>
             <%end%>
             </li>
             <%end%>

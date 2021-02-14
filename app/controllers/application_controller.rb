@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
     # before_action :authenticate_user!
+    # helper_method :current_user
+
     before_action :configure_permitted_parameters, if: :devise_controller?
     before_action :shopping_cart ,if: :current_user
     around_action :switch_locale
@@ -11,6 +13,10 @@ class ApplicationController < ActionController::Base
     # end
 
     protected
+
+    def current_user
+      @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    end
 
     def switch_locale(&action)
       if request.path_info.include?('en')
