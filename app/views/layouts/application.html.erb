@@ -24,22 +24,22 @@
   </head>
 
   <body style="margin:0;">
-    <% if request.path_info.include?('ar') %>
-      <%= render 'ar/includes/header' %>
-      <%= render 'ar/includes/messages' %>
-    <% else %>
+    <% if request.path_info.include?('en') %>
       <%= render 'en/includes/header' %>
       <%= render 'en/includes/messages' %>
+    <% else %>
+      <%= render 'ar/includes/header' %>
+      <%= render 'ar/includes/messages' %>
     <% end %>
     <%# <div id="loader"></div> %>
 
     <%# <div style="display:none;" id="myDiv" class="main-body animate-bottom"> %>
     <div id="myDiv" class="animate-bottom main-body">
       <%= yield %>
-          <% if request.path_info.include?('ar') %>
-            <%= render 'ar/includes/footer' %>
-          <% else %>
+          <% if request.path_info.include?('en') %>
             <%= render 'en/includes/footer' %>
+          <% else %>
+            <%= render 'ar/includes/footer' %>
           <% end %>
     </div>
 

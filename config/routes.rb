@@ -28,16 +28,13 @@ Rails.application.routes.draw do
 
   scope "(:locale)", locale: /ar/ do
     mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-    # devise_for :user
-    # devise_for :user, :path => 'ar', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }, as: 'arabic_devise'
-    # devise_for :user, :path => 'en', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }, as: 'english_devise'
     devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout' }
     devise_scope :user do
-    get 'ar/login', to: 'devise/sessions#new', as: 'ar_login'
-    get 'en/login', to: 'devise/sessions#new', as: 'en_login'
-    get 'ar/register', to: 'devise/registrations#new', as: 'ar_register'
-    get 'en/register', to: 'devise/registrations#new', as: 'en_register'
-end
+      get 'ar/login', to: 'devise/sessions#new', as: 'ar_login'
+      get 'en/login', to: 'devise/sessions#new', as: 'en_login'
+      get 'ar/register', to: 'devise/registrations#new', as: 'ar_register'
+      get 'en/register', to: 'devise/registrations#new', as: 'en_register'
+    end
     resource :dashboard do
       collection do
         get :report

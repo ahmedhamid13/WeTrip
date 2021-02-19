@@ -48,7 +48,7 @@ class BookTripsController < ApplicationController
     @book_trip.total_price = (book_trip_params[:adults].to_i*@trip.adult_price) + (book_trip_params[:children].to_i*@trip.child_price)
     return redirect_to request.referer unless @book_trip.total_price > 0
 
-    @book_trip.user_id = current_user.id
+    @book_trip.user_id = @current_user.id
     
     respond_to do |format|
       if @book_trip.save
@@ -70,7 +70,7 @@ class BookTripsController < ApplicationController
     @book_trip.total_price = (book_trip_params[:adults].to_i*@trip.adult_price) + (book_trip_params[:children].to_i*@trip.child_price)
     return redirect_to request.referer unless @book_trip.total_price > 0
 
-    @book_trip.user_id = current_user.id
+    @book_trip.user_id = @current_user.id
     
     respond_to do |format|
       if @book_trip.save

@@ -4,7 +4,7 @@
         <div class="row">
           <div class="col-md-4 bar-info mt-2" dir="ltr">
             <!-- Modal -->
-            <% if current_user %>
+            <% if @current_user %>
               <i class="fas fa-shopping-cart f-co <% if @book_trips.present? %>text-success hvr-grow<% end %>" data-toggle="modal" data-target="#cart"></i><% if @book_trips.present? %> (<strong><%=  @book_trips.count %></strong>)<% end %>
               <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -124,7 +124,7 @@
           <li class="nav-item hvr-float" id="about">
               <%= link_to t('header.about_us'), en_about_path, class: 'nav-link' %>
           </li>
-          <% if !current_user %>
+          <% if !@current_user %>
 
           <li class="nav-item hvr-float" id="register">
               <%= link_to en_register_path ,  class: 'nav-link bg-warning' do %>
@@ -137,11 +137,8 @@
                 <%= t('header.login') %>
                 <%end%>
             </li>
-            <li class="nav-item hvr-float">
-                <%= current_user %>
-            </li>
           <%else%>
-            <% if current_user.superadmin_role?%>
+            <% if @current_user.superadmin_role?%>
               <li class="nav-item hvr-float" id="admin">
                 <a class="nav-link bg-success" href="/admin"><%= t('header.dashboard') %></a>
               </li>
