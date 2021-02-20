@@ -46,7 +46,9 @@ class BookTripsController < ApplicationController
     @book_trip = BookTrip.new(book_trip_params)
 
     @book_trip.total_price = (book_trip_params[:adults].to_i*@trip.adult_price) + (book_trip_params[:children].to_i*@trip.child_price)
-    return redirect_to request.referer unless @book_trip.total_price > 0
+    if (@book_trip.total_price < 1 || !@trip.is_available)
+      return redirect_to request.referer, alert: "Invalid Booking"
+    end
 
     @book_trip.user_id = @current_user.id
     
@@ -68,13 +70,15 @@ class BookTripsController < ApplicationController
     @book_trip = BookTrip.new(book_trip_params)
 
     @book_trip.total_price = (book_trip_params[:adults].to_i*@trip.adult_price) + (book_trip_params[:children].to_i*@trip.child_price)
-    return redirect_to request.referer unless @book_trip.total_price > 0
+    if (@book_trip.total_price < 1 || !@trip.is_available)
+      return redirect_to request.referer, alert: "حجز محظور"
+    end
 
     @book_trip.user_id = @current_user.id
     
     respond_to do |format|
       if @book_trip.save
-        format.html { redirect_to request.referer, notice: 'Book trip was successfully created.' }
+        format.html { redirect_to request.referer, notice: 'لقد نجحت في حجز الرحلة' }
         format.json { render :show, status: :created, location: @book_trip }
       else
         format.html { render 'ar/trips/show' }
@@ -83,26 +87,18 @@ class BookTripsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /book_trips/1
-  # PATCH/PUT /book_trips/1.json
-  def update
+  def cancel_trip_en
+    @current_user.book_trips.where(history: false).destroy_all
     respond_to do |format|
-      if @book_trip.update(book_trip_params)
-        format.html { redirect_to @book_trip, notice: 'Book trip was successfully updated.' }
-        format.json { render :show, status: :ok, location: @book_trip }
-      else
-        format.html { render :edit }
-        format.json { render json: @book_trip.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to request.referer, notice: 'Checkout successfully' }
+      format.json { head :no_content }
     end
   end
 
-  # DELETE /book_trips/1
-  # DELETE /book_trips/1.json
-  def destroy
-    @book_trip.destroy
+  def cancel_trip_ar
+    @current_user.book_trips.where(history: false).destroy_all
     respond_to do |format|
-      format.html { redirect_to book_trips_url, notice: 'Book trip was successfully destroyed.' }
+      format.html { redirect_to request.referer, notice: 'لقد نجحت في إلغاء الرحلة' }
       format.json { head :no_content }
     end
   end

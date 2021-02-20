@@ -1,4 +1,11 @@
 ar:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'record_invalid %{errors}'
+        restrict_dependent_destroy:
+          has_one: restrict_dependent_destroy %{record} has_one
+          has_many: restrict_dependent_destroy %{record} has_many
   destinations: "الواجهات"
   trips: "الرحلات"
   header:

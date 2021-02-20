@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_12_05_195616) do
     t.integer "children", default: 0
     t.decimal "total_price", precision: 10, scale: 2
     t.boolean "is_paid", default: false
+    t.boolean "history", default: false
     t.bigint "trip_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

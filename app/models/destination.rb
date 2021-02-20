@@ -1,5 +1,5 @@
 class Destination < ApplicationRecord
-    has_many :trips, dependent: :destroy
+    has_many :trips, -> { available_trips }, dependent: :destroy, class_name: 'Trip'
     has_many :book_trips, through: :trips, source: :book_trips
 
     default_scope { order(created_at: :desc)}

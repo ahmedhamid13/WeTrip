@@ -32,7 +32,6 @@ class ApplicationController < ActionController::Base
     end
 
     def shopping_cart
-      @book_trips = BookTrip.where(user_id: current_user.id)
-      puts @book_trips.inspect
+      @book_trips = BookTrip.where(user_id: current_user.id, history: false)
     end
 end

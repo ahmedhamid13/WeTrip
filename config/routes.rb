@@ -48,5 +48,9 @@ Rails.application.routes.draw do
   resources :reviews, only: [:index, :show, :new, :create]
   post 'en/trips/:id', to: 'book_trips#book_trip_en', as: 'en_book_trip'
   post 'ar/trips/:id', to: 'book_trips#book_trip_ar', as: 'ar_book_trip'
+
+  delete 'ar/cancel/trips', to: 'book_trips#cancel_trip_ar', as: 'ar_cancel_trip'
+  delete 'en/cancel/trips', to: 'book_trips#cancel_trip_en', as: 'en_cancel_trip'
+
   root to: "ar/statics#home", as: 'home'
 end

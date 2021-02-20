@@ -37,48 +37,55 @@ def create_destination_and_trips(destintion)
         # trip.images.attach(io: File.open(Dir['app/assets/images/*.webp'].sample), filename: "trip1.jpg")
         # trip.images.attach(io: File.open(Dir['app/assets/images/*.webp'].sample), filename: "trip2.jpg")
         # trip.images.attach(io: File.open(Dir['app/assets/images/*.webp'].sample), filename: "trip2.jpg")
-        create_days_schedule(trip)
-        create_offers(trip)
-        create_reviews(trip)
+        if (trip && trip.id && Trip.find_by_id(trip.id))
+            create_days_schedule(trip)
+            create_offers(trip)
+            create_reviews(trip)
+        end
     end
 end
 
 def create_days_schedule(trip)
     rand(1..2).times do |t|
-        day = Day.create!(
-            number: t + 1,
-            trip_id: trip.id
-            
-        )
-        rand(3..6).times do |t|
-            Schedule.create!(
-                time: Time.now + t*3600*48,
-                en_name: Faker::FunnyName.name,
-                ar_name: Faker::FunnyName.name,
-                day_id: day.id
+        if (trip && trip.id && Trip.find_by_id(trip.id))
+            day = Day.create!(
+                number: t + 1,
+                trip_id: trip.id
             )
+            rand(3..6).times do |t|
+                Schedule.create!(
+                    time: Time.now + t*3600*48,
+                    en_name: Faker::FunnyName.name,
+                    ar_name: Faker::FunnyName.name,
+                    day_id: day.id
+                )
+            end
         end
     end
 end
 
 def create_offers(trip)
     rand(3..6).times do |t|
-        Offer.create!(
-            en_name: Faker::FunnyName.name,
-            ar_name: Faker::FunnyName.name,
-            is_available: Faker::Boolean.boolean(true_ratio: 0.68),
-            trip_id: trip.id
-        )
+        if (trip && trip.id && Trip.find_by_id(trip.id))
+            Offer.create!(
+                en_name: Faker::FunnyName.name,
+                ar_name: Faker::FunnyName.name,
+                is_available: Faker::Boolean.boolean(true_ratio: 0.68),
+                trip_id: trip.id
+            )
+        end
     end
 end
 
 def create_reviews(trip)
     rand(2..4).times do |t|
-        Review.create!(
-            comment: Faker::Lorem.paragraph,
-            trip_id: trip.id,
-            user_id: User.all.sample.id
-        )
+        if (trip && trip.id && Trip.find_by_id(trip.id))
+            Review.create!(
+                comment: Faker::Lorem.paragraph,
+                trip_id: trip.id,
+                user_id: User.all.sample.id
+            )
+        end
     end
 end
 

@@ -30,6 +30,13 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'record_invalid %{errors}'
+        restrict_dependent_destroy:
+          has_one: restrict_dependent_destroy %{record} has_one
+          has_many: restrict_dependent_destroy %{record} has_many
   destinations: "Destinations"
   trips: "Trips"
   header:

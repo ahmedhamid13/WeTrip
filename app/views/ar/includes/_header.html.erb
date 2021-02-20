@@ -17,7 +17,7 @@
                     </div>
 
                     <% @book_trips.each do |book_trip|%>
-                      <div class="modal-body" dir="rtl">
+                      <div class="modal-body" dir="ltr">
                         <div class="media">
                             <div class="media-left">
                               <%= link_to ar_trip_path(book_trip.trip) do %>
@@ -43,7 +43,9 @@
                     <% end %>
 
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-two"><a href="checkout.html"><%= t('header.checkout') %></a></button>
+                      <button type="button" class="btn btn-two">
+                       <%=  link_to t('header.checkout'), ar_cancel_trip_path, method: "delete", data: {:confirm => "You sure you want to checkout?" } %>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -61,7 +63,7 @@
               </div>
             </form>
           </div>
-          <div class="col-md-4 bar-info" dir="tr">
+          <div class="col-md-4 bar-info" dir="ltr">
             <select onchange="location = this.value;" data-width="fit" data-title="اللغة">
               <% if request.path_info.include?('en') %>
                 <option value="/en" selected>English</option>

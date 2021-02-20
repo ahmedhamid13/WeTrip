@@ -44,7 +44,9 @@
                     <% end %>
 
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-two"><a href="checkout.html"><%= t('header.checkout') %></a></button>
+                      <button type="button" class="btn btn-two">
+                        <%= link_to t('header.checkout'), ar_cancel_trip_path, method: "delete", data: {:confirm => "You sure you want to checkout?" } %>
+                      </button>
                     </div>
                   </div>
                 </div>
