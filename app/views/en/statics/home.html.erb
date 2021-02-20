@@ -19,9 +19,9 @@
                     <div class="carousel-caption space">
                             <h2><%= destination.en_name %></h2>
                     </div>
-                            <div class="carousel-caption">
-                                <%= link_to en_destination_path(destination), class: 'btn ' do %>Book Now<% end %>
-                            </div>
+                    <div class="carousel-caption">
+                        <%= link_to en_destination_path(destination), class: 'btn ' do %>Book Now<% end %>
+                    </div>
                 </div> 
                 <% end %>
   
@@ -137,7 +137,7 @@
             <% if @posts.present? %>
             <% @posts.each do |post| %>
                 <div class="col-md-6 m-for-b">
-                    <%= (post.image.attached?) ? image_tag(post.image, class: 'img-fluid hvr-glow') : image_tag("img_no.gif", class: 'img-fluid hvr-glow') %>
+                    <%= (post.image.attached?) ? image_tag(post.image, class: 'img-fluid hvr-glow') : image_tag("aldesah.webp", class: 'img-fluid hvr-glow') %>
                 </div>
 
                 <div class="col-md-6 m-for-b">

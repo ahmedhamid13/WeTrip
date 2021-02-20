@@ -13,15 +13,17 @@
             </div>   
 
             <% @destinations.drop(1).each do |destination| %>
+                <% if destination.image.attached? %>
 
                 <div class="carousel-item slider"  style="background-image: url(<%= url_for(destination.image) %>)">
                     <div class="carousel-caption space">
                             <h2><%= destination.ar_name %></h2>
                     </div>
-                            <div class="carousel-caption">
-                                <%= link_to ar_destination_path(destination), class: 'btn ' do %>إحجز الآن<% end %>
-                            </div>
-                </div>   
+                    <div class="carousel-caption">
+                        <%= link_to ar_destination_path(destination), class: 'btn ' do %>إحجز الآن<% end %>
+                    </div>
+                </div>
+                <% end %>
             <% end %>
         </div>
         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
@@ -45,7 +47,7 @@
         <%= link_to ar_destination_path(destination) do %>
         <div class="item">
             <div class="hovereffect">
-                <%= (destination.image.attached?) ? image_tag(destination.image, class: 'img-fluid') : image_tag("img_no.gif", class: 'img-fluid ') %>
+                <%= (destination.image.attached?) ? image_tag(destination.image, class: 'img-fluid') : image_tag("aldesah.webp", class: 'img-fluid ') %>
                 <div class="overlay">
                     <h2><%= destination.ar_name %></h2>
                 </div>
@@ -107,7 +109,7 @@
         <%= link_to ar_trip_path(trip) do %>
             <div class="item">
             <div class="hovereffect">
-            <%= (trip.images.attached?) ? image_tag(trip.images[0], class: 'img-fluid ') : image_tag("img_no.gif", class: 'img-fluid ') %>
+            <%= (trip.images.attached?) ? image_tag(trip.images[0], class: 'img-fluid ') : image_tag("aldesah.webp", class: 'img-fluid ') %>
             <div class="overlay">
                     <h2 class="font-arabic"><%= trip.ar_name %></h2>
                     <p>السعر <%= trip.adult_price %> ر.س للفرد</p>
@@ -134,7 +136,7 @@
             <% if @posts.present? %>
             <% @posts.each do |post| %>
                 <div class="col-md-6 m-for-b">
-                    <%= (post.image.attached?) ? image_tag(post.image, class: 'img-fluid hvr-glow') : image_tag("img_no.gif", class: 'img-fluid hvr-glow') %>
+                    <%= (post.image.attached?) ? image_tag(post.image, class: 'img-fluid hvr-glow') : image_tag("aldesah.webp", class: 'img-fluid hvr-glow') %>
                 </div>
 
                 <div class="col-md-6 m-for-b">
