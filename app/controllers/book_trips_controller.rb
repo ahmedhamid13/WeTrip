@@ -1,6 +1,6 @@
 class BookTripsController < ApplicationController
   before_action :set_book_trip, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:book_trip, :index, :show]
+  before_action :authenticate_user!, only: [:cancel_trip_en, :cancel_trip_ar, :index, :show]
   before_action :set_trip, :authenticate_user!, only: [:book_trip_en, :book_trip_ar]
 
   
