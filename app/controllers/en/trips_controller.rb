@@ -5,6 +5,9 @@ class En::TripsController < ApplicationController
   # GET /trips.json
   def index
     @trips = Trip.all
+    if params[:q]
+      @trips =  @trips.where('lower(en_name) LIKE :q OR lower(en_description) LIKE :q', q: "%#{params[:q].downcase}%")
+    end
   end
 
   # GET /trips/1

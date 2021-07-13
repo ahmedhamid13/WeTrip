@@ -1,41 +1,72 @@
 <!-- Start Header -->
 <% if @destinations.first && @destinations.first.image.attached? %>
-<div class="header">
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner" >
-            <div class="carousel-item active slider"  style="background-image: url(<%= url_for(@destinations.first.image) %>)">
-                <div class="carousel-caption space">
-                        <h2><%= @destinations.first.ar_name %></h2>
-                </div>
-                        <div class="carousel-caption">
-                            <%= link_to ar_destination_path(@destinations.first), class: 'btn ' do %>إحجز الآن<% end %>
-                        </div>
-            </div>   
-
-            <% @destinations.drop(1).each do |destination| %>
-                <% if destination.image.attached? %>
-
-                <div class="carousel-item slider"  style="background-image: url(<%= url_for(destination.image) %>)">
+    <div class="header">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" >
+                <div class="carousel-item active slider"  style="background-image: url(<%= url_for(@destinations.first.image) %>)">
                     <div class="carousel-caption space">
-                            <h2><%= destination.ar_name %></h2>
+                            <h2><%= @destinations.first.ar_name %></h2>
                     </div>
-                    <div class="carousel-caption">
-                        <%= link_to ar_destination_path(destination), class: 'btn ' do %>إحجز الآن<% end %>
+                            <div class="carousel-caption">
+                                <%= link_to ar_destination_path(@destinations.first), class: 'btn ' do %>إحجز الآن<% end %>
+                            </div>
+                </div>   
+
+                <% @destinations.drop(1).each do |destination| %>
+                    <% if destination.image.attached? %>
+
+                    <div class="carousel-item slider"  style="background-image: url(<%= url_for(destination.image) %>)">
+                        <div class="carousel-caption space">
+                                <h2><%= destination.ar_name %></h2>
+                        </div>
+                        <div class="carousel-caption">
+                            <%= link_to ar_destination_path(destination), class: 'btn ' do %>إحجز الآن<% end %>
+                        </div>
+                    </div>
+                    <% end %>
+                <% end %>
+            </div>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+        </div>
+    </div>
+<% else %>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div id="carouselExampleIndicators" class="carousel slide col-md-12 m-4" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" style="height: 680px;">
+                    <div class="carousel-item active">
+                        <%= image_tag("aldesah.webp", class: 'img-fluid d-block w-90', alt: 'First slide') %>
+                    </div>
+                    <div class="carousel-item">
+                        <%= image_tag("hisma.webp", class: 'img-fluid d-block w-90', alt: 'second slide') %>
+                    </div>
+                    <div class="carousel-item">
+                        <%= image_tag("harrat.webp", class: 'img-fluid d-block w-90', alt: 'Third slide') %>
                     </div>
                 </div>
-                <% end %>
-            <% end %>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
         </div>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
     </div>
-</div>
 <% end %>
 
 <!-- End Header -->

@@ -1,45 +1,76 @@
 <!-- Start Header -->
 <% if @destinations.first && @destinations.first.image.attached? %>
-<div class="header">
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner" >
-            <div class="carousel-item active slider"  style="background-image: url(<%= url_for(@destinations.first.image) %>)">
-                <div class="carousel-caption space">
-                        <h2><%= @destinations.first.en_name %></h2>
-                </div>
-                        <div class="carousel-caption">
-                            <%= link_to en_destination_path(@destinations.first), class: 'btn ' do %>Book Now<% end %>
-                        </div>
-            </div>   
-
-            <% @destinations.drop(1).each do |destination| %>
-                <% if destination.image.attached? %>
-
-                <div class="carousel-item slider"  style="background-image: url(<%= url_for(destination.image) %>)">
+    <div class="header">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" >
+                <div class="carousel-item active slider" style="background-image: url(<%= url_for(@destinations.first.image) %>)">
                     <div class="carousel-caption space">
-                            <h2><%= destination.en_name %></h2>
+                            <h2><%= @destinations.first.en_name %></h2>
                     </div>
-                    <div class="carousel-caption">
-                        <%= link_to en_destination_path(destination), class: 'btn ' do %>Book Now<% end %>
-                    </div>
-                </div> 
-                <% end %>
-  
-            <% end %>
-        </div>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-    </div>
-</div>
-<% end %>
+                            <div class="carousel-caption">
+                                <%= link_to en_destination_path(@destinations.first), class: 'btn ' do %>Book Now<% end %>
+                            </div>
+                </div>   
 
+                <% @destinations.drop(1).each do |destination| %>
+                    <% if destination.image.attached? %>
+
+                    <div class="carousel-item slider"  style="background-image: url(<%= url_for(destination.image) %>)">
+                        <div class="carousel-caption space">
+                                <h2><%= destination.en_name %></h2>
+                        </div>
+                        <div class="carousel-caption">
+                            <%= link_to en_destination_path(destination), class: 'btn ' do %>Book Now<% end %>
+                        </div>
+                    </div> 
+                    <% end %>
+    
+                <% end %>
+            </div>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+        </div>
+    </div>
+<% else %>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div id="carouselExampleIndicators" class="carousel slide col-md-12 m-4" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" style="height: 680px;">
+                    <div class="carousel-item active">
+                        <%= image_tag("aldesah.webp", class: 'img-fluid d-block w-90', alt: 'First slide') %>
+                    </div>
+                    <div class="carousel-item">
+                        <%= image_tag("hisma.webp", class: 'img-fluid d-block w-90', alt: 'second slide') %>
+                    </div>
+                    <div class="carousel-item">
+                        <%= image_tag("harrat.webp", class: 'img-fluid d-block w-90', alt: 'Third slide') %>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+<% end %>
 <!-- End Header -->
+
 <!-- Start Tours -->
 <div class="tours text-center">
     <div class="container-fluid">
@@ -60,6 +91,7 @@
     </div> <!-- /Container -->
 </div> <!-- /Tours -->
 <!-- End Tours -->
+<hr />
 <!-- Start About Us -->
 <div class="about">
     <div class="container">
@@ -67,7 +99,7 @@
 
         <div class="col-md-6 mb-3 info">
         <h1 class="hvr-float">About Us</h1>
-        <p class="border-top border-dark pt-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        <p class="border-top border-dark pt-4">Laboris ut non mollit consectetur non exercitation. Do ullamco quis fugiat proident nostrud. Duis do dolor aute ex labore ad ut qui aute minim tempor amet. Fugiat irure magna aliquip sunt enim nulla nulla velit irure cupidatat dolor. Lorem commodo cupidatat magna nisi sunt mollit aliquip ex incididunt officia. Nostrud velit duis in eiusmod fugiat do sint do ullamco.</p>
         <div class="text-right">
             <%= link_to en_about_path do %>
                 <button class="btn">More</button>
@@ -84,7 +116,7 @@
         </div>
         <div class="col-md-6 info">
         <h1 class="hvr-float">Trips</h1>
-        <p class="border-top border-dark pt-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        <p class="border-top border-dark pt-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Velit in aliquip consequat ad sint ipsum.</p>
         <div class="text-right">
             <%= link_to en_images_path do %>
                 <button class="btn">More</button>
@@ -100,6 +132,7 @@
     </div> <!-- /Container -->
 </div> <!-- /About -->
 <!-- End About Us -->
+<hr />
 <!-- Start Images -->
 <div class="images text-center">
     <div class="container-fluid">
@@ -123,6 +156,7 @@
     </div> <!--/Container-fluid -->
 </div> <!--/Images -->
 <!-- End Images -->
+<hr />
 <!-- Start Contact -->
 <div class="contact">
     <div class="container">

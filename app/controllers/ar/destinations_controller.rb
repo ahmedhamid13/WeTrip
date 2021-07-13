@@ -5,6 +5,9 @@ class Ar::DestinationsController < ApplicationController
   # GET /destinations.json
   def index
     @destinations = Destination.all
+    if params[:q]
+      @destinations =  @destinations.where('lower(en_name) LIKE :q OR lower(en_description) LIKE :q', q: "%#{params[:q].downcase}%")
+    end
   end
 
   # GET /destinations/1

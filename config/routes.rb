@@ -52,5 +52,5 @@ Rails.application.routes.draw do
   delete 'ar/cancel/trips', to: 'book_trips#cancel_trip_ar', as: 'ar_cancel_trip'
   delete 'en/cancel/trips', to: 'book_trips#cancel_trip_en', as: 'en_cancel_trip'
 
-  root to: "ar/statics#home", as: 'home'
+  root to: "en/statics#home", as: 'home'
 end

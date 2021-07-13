@@ -2,7 +2,7 @@
 <div class="top-bar text-center" id="top">
     <div class="container">
         <div class="row">
-          <div class="col-md-4 bar-info mt-2" dir="ltr">
+          <div class="col-sm-12 col-md-4 bar-info mt-2 p-2" dir="ltr">
             <% if @current_user %>
               <i class="fas fa-shopping-cart f-co <% if @book_trips.present? %>text-success hvr-grow<% end %>" data-toggle="modal" data-target="#cart"></i><% if @book_trips.present? %> (<strong><%=  @book_trips.count %></strong>)<% end %>
               <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -53,17 +53,17 @@
             <% end %>
             <i class="fas fa-envelope f-co"></i> <span class="w-email">info@weekendtripss.com</span>
           </div>
-          <div class="col-md-4 mt-1 d-none d-md-block">
-            <form>
+          <div class="col-sm-12 col-md-4 mt-1 d-none d-md-block">
+            <form action="/ar/destinations">
               <div class="input-group">
                 <div class="input-group-prepend">
                   <div class="input-group-text"><i class="fas fa-search f-co"></i></div>
                 </div>
-                <input type="search" class="form-control" id="inlineFormInputGroup1">
+                <input type="search" id="q" name="q" value="<%= params[:q] %>" class="form-control" id="inlineFormInputGroup1" placeholder="البحث عن الواجهات">
               </div>
             </form>
           </div>
-          <div class="col-md-4 bar-info" dir="ltr">
+          <div class="col-sm-12 col-md-4 bar-info p-2" dir="ltr">
             <select onchange="location = this.value;" data-width="fit" data-title="اللغة">
               <% if request.path_info.include?('en') %>
                 <option value="/en" selected>English</option>
@@ -79,13 +79,13 @@
           </div>
 
           <!-- For Mobile Only -->
-          <div class="col-md-4 d-block d-md-none">
-            <form>
+          <div class="col-md-4 d-block d-md-none p-2">
+            <form action="/ar/destinations">
               <div class="input-group ">
                 <div class="input-group-prepend">
                   <div class="input-group-text"><i class="fas fa-search f-co"></i></div>
                 </div>
-                <input type="search" class="form-control" id="inlineFormInputGroup2">
+                <input type="search" id="q" name="q" value="<%= params[:q] %>" class="form-control" id="inlineFormInputGroup2" placeholder="البحث عن الواجهات">
               </div>
             </form>
           </div>

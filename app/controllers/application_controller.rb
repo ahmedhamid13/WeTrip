@@ -19,8 +19,8 @@ class ApplicationController < ActionController::Base
     end
 
     def switch_locale(&action)
-      if request.path_info.include?('en')
-        locale = 'en'
+      if request.path_info.include?('ar')
+        locale = 'ar'
       else
         locale = I18n.default_locale
       end

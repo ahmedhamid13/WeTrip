@@ -19,7 +19,7 @@ module WeTrip
     # the framework and any gems in your application.
     # I18n.enforce_available_locales = false
     I18n.config.available_locales = [:en , :ar]
-    config.i18n.default_locale = :ar
+    config.i18n.default_locale = :en
 
 
   end
