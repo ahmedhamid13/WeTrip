@@ -5,11 +5,11 @@
             <div class="carousel-inner" >
                 <div class="carousel-item active slider"  style="background-image: url(<%= url_for(@destinations.first.image) %>)">
                     <div class="carousel-caption space">
-                            <h2><%= @destinations.first.ar_name %></h2>
+                        <h2><%= @destinations.first.ar_name %></h2>
                     </div>
-                            <div class="carousel-caption">
-                                <%= link_to ar_destination_path(@destinations.first), class: 'btn ' do %>إحجز الآن<% end %>
-                            </div>
+                    <div class="carousel-caption">
+                        <%= link_to ar_destination_path(@destinations.first), class: 'btn ' do %>إحجز الآن<% end %>
+                    </div>
                 </div>   
 
                 <% @destinations.drop(1).each do |destination| %>
