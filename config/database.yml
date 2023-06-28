@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: WeTrip_production
-  username: WeTrip
-  password: <%= ENV['WETRIP_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
